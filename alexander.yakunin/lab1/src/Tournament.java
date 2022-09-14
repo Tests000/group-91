@@ -16,6 +16,7 @@ public class Tournament {
 
     public int calculateGames() {
         int countOfCommands = getCountOfCommands(); // Обработка ввода кол-ва команд
+
         int countOfGames = 0;
 
         while(countOfCommands != 1) {
