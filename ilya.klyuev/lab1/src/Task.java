@@ -5,8 +5,9 @@ public class Task {
 
         for (int i = 0; i < temperatures.length; i++) {
             int firstMoreTemperatureIndex = findFirstMoreTemperature(temperatures, i);
-            answer[i] = (firstMoreTemperatureIndex == -1 ? 0 :
-                    firstMoreTemperatureIndex - i);
+            answer[i] = (firstMoreTemperatureIndex == -1
+                    ? 0
+                    : firstMoreTemperatureIndex - i);
         }
 
         return answer;
