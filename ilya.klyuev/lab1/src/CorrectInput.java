@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
 public class CorrectInput {
-    Scanner scanner = new Scanner(System.in);
-
     private int InputInt() {
         int number = 0;
         boolean isCorrectInput = false;
+        Scanner scanner = new Scanner(System.in);
 
         while (!isCorrectInput) {
             try {
@@ -29,8 +28,9 @@ public class CorrectInput {
             System.out.printf("Введите число от %d до %d\n", leftBound, rightBound);
             number = InputInt();
             isCorrectInput = number >= leftBound && number <= rightBound;
-            if (!isCorrectInput)
+            if (!isCorrectInput) {
                 System.out.println("Число не входит в заданный диапазон. Повторите попытку");
+            }
         }
         return number;
     }

@@ -15,8 +15,9 @@ public class Task {
 
     private int findFirstMoreTemperature(int[] temperatures, int startIndex) {
         for (int i = startIndex + 1; i < temperatures.length; i++)
-            if (temperatures[i] > temperatures[startIndex])
+            if (temperatures[i] > temperatures[startIndex]){
                 return i;
+            }
         return -1;
     }
 }
