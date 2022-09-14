@@ -14,8 +14,8 @@ public class Main {
 
     private static int[] readCommands() {
 
-        System.out.print("Введите количество команд: ");
         int commandsLength = 0;
+        System.out.print("Введите количество команд: ");
         if (scanner.hasNextInt()) {
             commandsLength = scanner.nextInt();
         }
@@ -54,8 +54,8 @@ public class Main {
 
     private static int[][] readObstacles() {
 
-        System.out.print("Введите количество препятствий: ");
         int obstaclesLength = -1;
+        System.out.print("Введите количество препятствий: ");
         if (scanner.hasNextInt()) {
             obstaclesLength = scanner.nextInt();
         }
@@ -72,6 +72,8 @@ public class Main {
 
         int[][] obstacles = new int[obstaclesLength][2];
         for (int i = 0; i < obstaclesLength; i++) {
+            obstacles[i][0] = 3 * 104 + 1;
+            obstacles[i][1] = 3 * 104 + 1;
 
             System.out.printf("Введите координаты x и y для препятствия %d через пробел: ", i + 1);
             if (scanner.hasNextInt()) {
