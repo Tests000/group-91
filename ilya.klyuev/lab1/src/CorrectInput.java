@@ -11,7 +11,7 @@ public class CorrectInput {
             try {
                 number = scanner.nextInt();
                 isCorrectInput = true;
-            } catch (Exception exception){
+            } catch (Exception exception) {
                 System.out.println("Произошла ошибка при вводе. Повторите попытку");
                 scanner.nextLine();
             }
@@ -32,5 +32,16 @@ public class CorrectInput {
                 System.out.println("Число не входит в заданный диапазон. Повторите попытку");
         }
         return number;
+    }
+
+    public int[] inputTemperatures() {
+        int temperaturesNumber = InputIntInRange("Введите количество дней", 1, 105);
+        int[] temperatures = new int[temperaturesNumber];
+
+        for (int i = 0; i < temperaturesNumber; i++) {
+            String message = String.format("Введите температуру за %d день", i + 1);
+            temperatures[i] = InputIntInRange(message, 30, 100);
+        }
+        return temperatures;
     }
 }
