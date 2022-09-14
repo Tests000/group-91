@@ -7,8 +7,7 @@ public class MainProgram {
         int[] answer = task.findHighestTemperatureForEachDay(temperatures);
 
         System.out.print("Ответ: ");
-        for (int item : answer
-        ) {
+        for (int item : answer) {
             System.out.printf("%d ", item);
         }
     }

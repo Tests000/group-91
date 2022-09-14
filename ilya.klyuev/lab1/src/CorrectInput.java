@@ -14,6 +14,7 @@ public class CorrectInput {
             } catch (Exception exception) {
                 System.out.println("Произошла ошибка при вводе. Повторите попытку");
                 scanner.nextLine();
+                exception.printStackTrace();
             }
         }
         return number;
