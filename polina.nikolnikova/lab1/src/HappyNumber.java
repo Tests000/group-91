@@ -35,58 +35,87 @@ Output: false
 import java.util.Scanner;
 
 public class HappyNumber {
+
+    public static boolean isAlphaNumeric(String stringInput) {
+        return stringInput != null && stringInput.matches("^[0-9]*$");
+    }
+
+    public static int candidateInput() {
+        Scanner scan = new Scanner(System.in);
+        String candidate = scan.nextLine();
+
+        if (isAlphaNumeric(candidate)) {
+            int candidateForHappyNumber = Integer.parseInt(candidate);
+
+            if (candidateForHappyNumber > 0 && candidateForHappyNumber < Math.pow(2, 31)) {
+                return candidateForHappyNumber;
+            }
+        }
+        return -1;
+    }
+
+    public static void convertingNumberToArray(int[] arrayNumbers, int lengthCandidate, int candidateForHappyNumber) {
+        for (int i = lengthCandidate - 1; i > -1; i--) {
+            arrayNumbers[i] = candidateForHappyNumber % 10;
+            candidateForHappyNumber /= 10;
+        }
+    }
+
+    public static int countingNonZeroDigints(int[] arrayNumbers, int lengthCandidate) {
+        int counterOfNonZeroDigits = 0;
+        for (int i = 0; i < lengthCandidate; i++) {
+            if (arrayNumbers[i] != 0) {
+                counterOfNonZeroDigits++;
+            }
+        }
+        return counterOfNonZeroDigits;
+    }
+
+    public static int calculatingTheAmount(int[] arrayNumbers, int lengthCandidate, int counterOfNonZeroDigits) {
+        int sum = 0;
+        if (counterOfNonZeroDigits == 1 && arrayNumbers[0] != 1 && arrayNumbers[0] != 7) {
+            return -1;
+        }
+
+        for (int i = 0; i < lengthCandidate; i++) {
+            sum += Math.pow(arrayNumbers[i], 2);
+        }
+
+        return sum;
+    }
+
     public static void main(String[] args) {
-        int candidateForHappyNumber;
         boolean happyNumber = true;
 
         System.out.print("Введите число  от 1 до 2 ^ 31 - 1: ");
-        boolean correctInput = true;
-        Scanner scan = new Scanner(System.in);
+        int candidateForHappyNumber;
 
         do {
-            candidateForHappyNumber = scan.nextInt();
-
-            if (candidateForHappyNumber < 1 || candidateForHappyNumber > (Math.pow(2,31) - 1)) {
-                correctInput = false;
+            candidateForHappyNumber = candidateInput();
+            if (candidateForHappyNumber == -1) {
                 System.out.print("Ошибка ввода. Введите число от 1 до 2 ^ 31 - 1: ");
             }
-            else {
-                correctInput = true;
-            }
-        } while(!correctInput);
+        } while (candidateForHappyNumber == -1);
 
-        int sum = 0;
         int lengthCandidate;
         boolean exitTheLoop = false;
         do {
             lengthCandidate = String.valueOf(candidateForHappyNumber).length();
 
-            if (lengthCandidate == 1 && candidateForHappyNumber != 1) {
+            int[] arrayNumbers;
+            arrayNumbers = new int[lengthCandidate];
+            convertingNumberToArray(arrayNumbers, lengthCandidate, candidateForHappyNumber);
+            int counterOfNonZeroDigits = countingNonZeroDigints(arrayNumbers, lengthCandidate);
+            int sum = calculatingTheAmount(arrayNumbers, lengthCandidate, counterOfNonZeroDigits);
+            if (sum == -1) {
                 happyNumber = false;
                 exitTheLoop = true;
+            } else if (sum == 1) {
+                exitTheLoop = true;
+            } else {
+                candidateForHappyNumber = sum;
             }
-            else {
-                int[] arrayNumbers;
-                arrayNumbers = new int[lengthCandidate];
-                for (int i = lengthCandidate - 1; i > -1; i--) {
-                    arrayNumbers[i] = candidateForHappyNumber % 10;
-                    candidateForHappyNumber /= 10;
-                }
-
-                for (int i = 0; i < lengthCandidate; i++) {
-                    sum += Math.pow(arrayNumbers[i], 2);
-                }
-
-                if(sum == 1) {
-                    happyNumber = true;
-                    exitTheLoop = true;
-                }
-                else {
-                    candidateForHappyNumber = sum;
-                    sum = 0;
-                }
-            }
-        } while(!exitTheLoop);
+        } while (!exitTheLoop);
 
         System.out.println("Является ли введенное число счастливым: " + happyNumber);
     }
