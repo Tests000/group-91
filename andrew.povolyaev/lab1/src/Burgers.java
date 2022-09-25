@@ -81,6 +81,7 @@ public class Burgers
         Burgers burgers = new Burgers();
         List<Integer> answer = burgers.numOfBurgers(tomatoSlices,cheeseSlices);
         System.out.println(answer);
+
     }
 
 
