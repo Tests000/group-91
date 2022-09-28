@@ -27,7 +27,7 @@ public class WalkingRobotSimulation {
         }
     }
 
-    public void makeMove(int command) {
+    private void makeMove(int command) {
 
         WalkingRobot.Directions direction = walkingRobot.getDirection();
         int[] coordinates = walkingRobot.getCoordinates();

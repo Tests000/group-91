@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Main {
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         int[] commands = readCommands();
@@ -13,7 +12,7 @@ public class Main {
     }
 
     private static int[] readCommands() {
-
+        Scanner scanner = new Scanner(System.in);
         int commandsLength = 0;
         System.out.print("Введите количество команд: ");
         if (scanner.hasNextInt()) {
@@ -21,7 +20,7 @@ public class Main {
         }
         scanner.nextLine();
 
-        while (1 > commandsLength || commandsLength > 104) {
+        while (1 > commandsLength || commandsLength > 10000) {
 
             System.out.printf("Количество команд должно быть равно целому числу в диапазоне [1, 104].%nВведите еще раз: ");
             if (scanner.hasNextInt()) {
@@ -56,12 +55,13 @@ public class Main {
 
         int obstaclesLength = -1;
         System.out.print("Введите количество препятствий: ");
+        Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextInt()) {
             obstaclesLength = scanner.nextInt();
         }
         scanner.nextLine();
 
-        while (0 > obstaclesLength || obstaclesLength > 104) {
+        while (0 > obstaclesLength || obstaclesLength > 10000) {
 
             System.out.printf("Количество препятствий должно быть равно целому числу в диапазоне [0, 104].%nВведите еще раз: ");
             if (scanner.hasNextInt()) {
@@ -72,8 +72,8 @@ public class Main {
 
         int[][] obstacles = new int[obstaclesLength][2];
         for (int i = 0; i < obstaclesLength; i++) {
-            obstacles[i][0] = 3 * 104 + 1;
-            obstacles[i][1] = 3 * 104 + 1;
+            obstacles[i][0] = 3 * 10000 + 1;
+            obstacles[i][1] = 3 * 10000 + 1;
 
             System.out.printf("Введите координаты x и y для препятствия %d через пробел: ", i + 1);
             if (scanner.hasNextInt()) {
@@ -84,7 +84,8 @@ public class Main {
             }
             scanner.nextLine();
 
-            while (-3 * 104 > obstacles[i][0] || obstacles[i][0] > 3 * 104 || -3 * 104 > obstacles[i][1] || obstacles[i][1] > 3 * 104) {
+            while (-3 * 10000 > obstacles[i][0] || obstacles[i][0] > 3 * 10000
+                    || -3 * 10000 > obstacles[i][1] || obstacles[i][1] > 3 * 10000) {
 
                 System.out.printf("Координаты препятствия должны быть равны целым числам в диапазоне [-3 * 104, 3 * 104].%nВведите еще раз: ");
                 if (scanner.hasNextInt()) {
