@@ -40,8 +40,8 @@ public class Lamp extends Tovar {
         System.out.println(printStr);
     }
 
-    private String model;
-    private int voltage;
-    private int amperStrength;
+    private final String model;
+    private final int voltage;
+    private final int amperStrength;
     private boolean isOn;
 }

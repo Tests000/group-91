@@ -37,6 +37,6 @@ public class Shkaf extends Tovar {
         return Objects.hash(model, countOfPolkas);
     }
 
-    private String model;
-    private int countOfPolkas;
+    private final String model;
+    private final int countOfPolkas;
 }

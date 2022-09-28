@@ -15,5 +15,5 @@ public class MegaLamp extends Lamp {
     }
 
 
-    private int countOfLamps;
+    private final int countOfLamps;
 }
