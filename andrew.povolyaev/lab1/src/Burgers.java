@@ -53,16 +53,16 @@ public class Burgers
 
     public List<Integer> numOfBurgers(int tomatoSlices, int cheeseSlices)
     {
-        List<Integer> answer = new ArrayList<Integer>();
+        List<Integer> answer = new ArrayList<>();
 
-        double numberOfBT = tomatoSlices/2 - cheeseSlices;
-        double numberOfJun = 2*cheeseSlices - tomatoSlices/2;
+        double numberOfBT = (double)tomatoSlices/2 - cheeseSlices;
+        double numberOfJun = 2*cheeseSlices - (double)tomatoSlices/2;
 
         if (numberOfBT < 0 || numberOfJun < 0)
-            return answer;
+        {return answer;}
 
         if (numberOfBT != (int)numberOfBT || numberOfJun != (int)numberOfJun)
-            return answer;
+        {return answer;}
         else
         {
             answer.add((int)numberOfBT);
@@ -74,10 +74,30 @@ public class Burgers
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-        System.out.print("Input amount of tomatoSlices: ");
-        int tomatoSlices = in.nextInt();
-        System.out.print("Input amount of cheeseSlices: ");
-        int cheeseSlices = in.nextInt();
+        int tomatoSlices=-1, cheeseSlices=-1;
+        do {
+            System.out.print("Input amount of tomatoSlices: ");
+            while (!in.hasNextInt())
+            {
+                System.out.println("Inappropriate amount of tomatoSlices  ");
+                System.out.println("Try one more time please: ");
+                in.next();
+            }
+            tomatoSlices = in.nextInt();
+        }
+        while (tomatoSlices<0 || tomatoSlices>107);
+
+        do {
+            System.out.print("Input amount of cheeseSlices: ");
+            while (!in.hasNextInt())
+            {
+                System.out.println("Inappropriate amount of cheeseSlices  ");
+                System.out.println("Try one more time please: ");
+                in.next();
+            }
+            cheeseSlices = in.nextInt();
+        }
+        while (cheeseSlices<0 || cheeseSlices>107);
         Burgers burgers = new Burgers();
         List<Integer> answer = burgers.numOfBurgers(tomatoSlices,cheeseSlices);
         System.out.println(answer);
