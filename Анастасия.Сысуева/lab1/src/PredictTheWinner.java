@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class PredictTheWinner {
 
-    final static int MINSIZE_CONST = 1;
-    final static int MAXSIZE_CONST = 20;
-    final static int MINELEM_CONST = 0;
-    final static int MAXELEM_CONST = 107;
+    private static final int MINSIZE_CONST = 1;
+    private static final int MAXSIZE_CONST = 20;
+    private static final int MINELEM_CONST = 0;
+    private static final int MAXELEM_CONST = 107;
 
     public static void main(String[] args) {
         int[] nums = inputArray();
@@ -23,14 +23,14 @@ public class PredictTheWinner {
 
         do {
             System.out.println("Введите размер массива (от 1 до 20): ");
-            size = input.nextInt();
+            size = input.nextInt(); // TODO: поймать исключение либо проверить ввод
         } while (restrictionsChecking(MINSIZE_CONST, MAXSIZE_CONST, size));
 
         int[] nums = new int[size];
         System.out.println("Введите " + size + " элемент(а/ов) массива (значения элементов от 0 до 107): ");
 
         for (int i = 0; i < nums.length; i++) {
-            nums[i] = input.nextInt();
+            nums[i] = input.nextInt();// TODO: поймать исключение либо проверить ввод
             while (restrictionsChecking(MINELEM_CONST, MAXELEM_CONST, nums[i])) {
                 System.out.println("Введите " + (i + 1) + " элемент массива (значения элементов от 0 до 107): ");
                 nums[i] = input.nextInt();
