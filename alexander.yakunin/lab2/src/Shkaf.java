@@ -1,16 +1,15 @@
 import java.util.Objects;
 
 public class Shkaf extends Tovar {
-
-    @Override
-    public void build() {
-        System.out.println("Вы собрали шкаф из нескольких досок!!!");
-    }
-
     public Shkaf(String model, int countOfPolkas, int srokGodnosti, int cost) {
         super(cost, srokGodnosti);
         this.model = model;
         this.countOfPolkas = countOfPolkas;
+    }
+
+    @Override
+    public void build() {
+        System.out.println("Вы собрали шкаф из нескольких досок!!!");
     }
 
     @Override

@@ -12,15 +12,18 @@ public class Program {
         System.out.println("shkaf1 == shkaf3: " + shkaf1.equals(shkaf3));
         System.out.println();
 
-        Tovar lampa = new Lamp("Brighter", 230, 2, 366, 5000);
+        Lamp lampa = new Lamp("Brighter", 230, 2, 366, 5000);
         lampa.build();
         System.out.println(lampa);
         System.out.println();
+        lampa.powerLamp();
+        lampa.powerLamp();
 
-        Tovar mega = new MegaLamp("Mega", 230, 3, 3, 12000, 700);
+        MegaLamp mega = new MegaLamp("Mega", 230, 3, 3, 12000, 700);
         mega.sale();
         mega.checkBuyDate();
         System.out.println(mega);
         mega.throwAway();
+        mega.powerLamp();
     }
 }
