@@ -1,3 +1,7 @@
+package Classes;
+
+import Interfaces.Powerable;
+
 import java.util.Objects;
 
 public class Lamp extends Good implements Powerable {

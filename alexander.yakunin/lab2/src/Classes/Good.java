@@ -1,3 +1,7 @@
+package Classes;
+
+import Interfaces.Product;
+
 public abstract class Good implements Product {
 
     protected int cost;

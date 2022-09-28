@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.Objects;
 
 public class Shkaf extends Good {
