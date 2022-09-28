@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Shkaf extends Tovar{
+public class Shkaf extends Tovar {
 
     @Override
     public void build() {
@@ -15,7 +15,7 @@ public class Shkaf extends Tovar{
 
     @Override
     public String toString() {
-        return "Модель: " + this.model +"\nКоличество полок: " + this.countOfPolkas;
+        return "Модель: " + this.model + "\nКоличество полок: " + this.countOfPolkas;
     }
 
     @Override

@@ -15,12 +15,12 @@ public class Lamp extends Tovar {
 
     @Override
     public String toString() {
-        return "Модель: " + this.model +"\nВольтаж: " + this.voltage + "\nРазрешенная сила тока: " + amperStrength;
+        return "Модель: " + this.model + "\nВольтаж: " + this.voltage + "\nРазрешенная сила тока: " + amperStrength;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof Lamp))
+        if (!(obj instanceof Lamp))
             return false;
 
         return this.model.equalsIgnoreCase(((Lamp) obj).model)

@@ -3,7 +3,9 @@ public abstract class Tovar implements ProductImpl {
         this.cost = cost;
         this.srokGodnosti = srokGodnosti;
     }
+
     public abstract void build();
+
     public void sale() {
         System.out.println(String.format("Вы купили товар за %d", this.cost));
     }

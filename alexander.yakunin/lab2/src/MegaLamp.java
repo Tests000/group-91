@@ -11,7 +11,7 @@ public class MegaLamp extends Lamp {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj) && this.countOfLamps == ((MegaLamp)obj).countOfLamps;
+        return super.equals(obj) && this.countOfLamps == ((MegaLamp) obj).countOfLamps;
     }
 
 
