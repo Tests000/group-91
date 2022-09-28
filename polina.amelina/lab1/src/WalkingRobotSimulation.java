@@ -34,34 +34,34 @@ public class WalkingRobotSimulation {
         int[] obstacleOnPath = findObstacleOnPath(command);
 
         switch (direction) {
-            case north:
+            case north -> {
                 if (obstacleOnPath != null) {
                     coordinates[1] = obstacleOnPath[1] - 1;
                 } else {
                     coordinates[1] += command;
                 }
-                break;
-            case east:
+            }
+            case east -> {
                 if (obstacleOnPath != null) {
                     coordinates[0] = obstacleOnPath[0] - 1;
                 } else {
                     coordinates[0] += command;
                 }
-                break;
-            case south:
+            }
+            case south -> {
                 if (obstacleOnPath != null) {
                     coordinates[1] = obstacleOnPath[1] + 1;
                 } else {
                     coordinates[1] -= command;
                 }
-                break;
-            case west:
+            }
+            case west -> {
                 if (obstacleOnPath != null) {
                     coordinates[0] = obstacleOnPath[0] + 1;
                 } else {
                     coordinates[0] -= command;
                 }
-                break;
+            }
         }
 
         if (farthestPoint == null
@@ -80,7 +80,7 @@ public class WalkingRobotSimulation {
         int[] obstacleOnPath = null;
 
         switch (direction) {
-            case north:
+            case north -> {
                 for (int[] obstacle : obstacles) {
                     if (obstacle[0] == coordinates[0]
                             && obstacle[1] > coordinates[1]
@@ -90,8 +90,8 @@ public class WalkingRobotSimulation {
                         obstacleOnPath = obstacle;
                     }
                 }
-                break;
-            case east:
+            }
+            case east -> {
                 for (int[] obstacle : obstacles) {
                     if (obstacle[1] == coordinates[1]
                             && obstacle[0] > coordinates[0]
@@ -101,8 +101,8 @@ public class WalkingRobotSimulation {
                         obstacleOnPath = obstacle;
                     }
                 }
-                break;
-            case south:
+            }
+            case south -> {
                 for (int[] obstacle : obstacles) {
                     if (obstacle[0] == coordinates[0]
                             && obstacle[1] < coordinates[1]
@@ -112,8 +112,8 @@ public class WalkingRobotSimulation {
                         obstacleOnPath = obstacle;
                     }
                 }
-                break;
-            case west:
+            }
+            case west -> {
                 for (int[] obstacle : obstacles) {
                     if (obstacle[1] == coordinates[1]
                             && obstacle[0] < coordinates[0]
@@ -123,7 +123,7 @@ public class WalkingRobotSimulation {
                         obstacleOnPath = obstacle;
                     }
                 }
-                break;
+            }
         }
 
         return obstacleOnPath;

@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
         int[] commands = readCommands();
         int[][] obstacles = readObstacles();
         WalkingRobotSimulation walkingRobotSimulation = new WalkingRobotSimulation(commands, obstacles);
@@ -12,17 +13,21 @@ public class Main {
     }
 
     private static int[] readCommands() {
+
+        int MIN_COMMANDS_AMOUNT = 1;
+        int MAX_COMMANDS_AMOUNT = 10000;
         Scanner scanner = new Scanner(System.in);
-        int commandsLength = 0;
+
+        int commandsLength = MIN_COMMANDS_AMOUNT - 1;
         System.out.print("Введите количество команд: ");
         if (scanner.hasNextInt()) {
             commandsLength = scanner.nextInt();
         }
         scanner.nextLine();
 
-        while (1 > commandsLength || commandsLength > 10000) {
+        while (MIN_COMMANDS_AMOUNT > commandsLength || commandsLength > MAX_COMMANDS_AMOUNT) {
 
-            System.out.printf("Количество команд должно быть равно целому числу в диапазоне [1, 104].%nВведите еще раз: ");
+            System.out.printf("Количество команд должно быть равно целому числу в диапазоне [%d, %d].%nВведите еще раз: ", MIN_COMMANDS_AMOUNT, MAX_COMMANDS_AMOUNT);
             if (scanner.hasNextInt()) {
                 commandsLength = scanner.nextInt();
             }
@@ -53,17 +58,22 @@ public class Main {
 
     private static int[][] readObstacles() {
 
-        int obstaclesLength = -1;
-        System.out.print("Введите количество препятствий: ");
+        int MIN_OBSTACLES_AMOUNT = 0;
+        int MAX_OBSTACLES_AMOUNT = 10000;
+        int MIN_OBSTACLE = -3 * MAX_OBSTACLES_AMOUNT;
+        int MAX_OBSTACLE = 3 * MAX_OBSTACLES_AMOUNT;
         Scanner scanner = new Scanner(System.in);
+
+        int obstaclesLength = MIN_OBSTACLES_AMOUNT - 1;
+        System.out.print("Введите количество препятствий: ");
         if (scanner.hasNextInt()) {
             obstaclesLength = scanner.nextInt();
         }
         scanner.nextLine();
 
-        while (0 > obstaclesLength || obstaclesLength > 10000) {
+        while (MIN_OBSTACLES_AMOUNT > obstaclesLength || obstaclesLength > MAX_OBSTACLES_AMOUNT) {
 
-            System.out.printf("Количество препятствий должно быть равно целому числу в диапазоне [0, 104].%nВведите еще раз: ");
+            System.out.printf("Количество препятствий должно быть равно целому числу в диапазоне [%d, %d].%nВведите еще раз: ", MIN_OBSTACLES_AMOUNT, MAX_OBSTACLES_AMOUNT);
             if (scanner.hasNextInt()) {
                 obstaclesLength = scanner.nextInt();
             }
@@ -72,8 +82,8 @@ public class Main {
 
         int[][] obstacles = new int[obstaclesLength][2];
         for (int i = 0; i < obstaclesLength; i++) {
-            obstacles[i][0] = 3 * 10000 + 1;
-            obstacles[i][1] = 3 * 10000 + 1;
+            obstacles[i][0] = MIN_OBSTACLE - 1;
+            obstacles[i][1] = MIN_OBSTACLE - 1;
 
             System.out.printf("Введите координаты x и y для препятствия %d через пробел: ", i + 1);
             if (scanner.hasNextInt()) {
@@ -84,10 +94,10 @@ public class Main {
             }
             scanner.nextLine();
 
-            while (-3 * 10000 > obstacles[i][0] || obstacles[i][0] > 3 * 10000
-                    || -3 * 10000 > obstacles[i][1] || obstacles[i][1] > 3 * 10000) {
+            while (MIN_OBSTACLE > obstacles[i][0] || obstacles[i][0] > MAX_OBSTACLE
+                    || MIN_OBSTACLE > obstacles[i][1] || obstacles[i][1] > MAX_OBSTACLE) {
 
-                System.out.printf("Координаты препятствия должны быть равны целым числам в диапазоне [-3 * 104, 3 * 104].%nВведите еще раз: ");
+                System.out.printf("Координаты препятствия должны быть равны целым числам в диапазоне [%d, %d].%nВведите еще раз: ", MIN_OBSTACLE, MAX_OBSTACLE);
                 if (scanner.hasNextInt()) {
                     obstacles[i][0] = scanner.nextInt();
                 }
