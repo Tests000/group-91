@@ -54,11 +54,13 @@ public class HappyNumber {
         return -1;
     }
 
-    public static void convertingNumberToArray(int[] arrayNumbers, int lengthCandidate, int candidateForHappyNumber) {
+    public static int[] convertingNumberToArray(int lengthCandidate, int candidateForHappyNumber) {
+        int[] arrayNumbers = new int[lengthCandidate];;
         for (int i = lengthCandidate - 1; i > -1; i--) {
             arrayNumbers[i] = candidateForHappyNumber % 10;
             candidateForHappyNumber /= 10;
         }
+        return arrayNumbers;
     }
 
     public static int countingNonZeroDigints(int[] arrayNumbers, int lengthCandidate) {
@@ -103,8 +105,7 @@ public class HappyNumber {
             lengthCandidate = String.valueOf(candidateForHappyNumber).length();
 
             int[] arrayNumbers;
-            arrayNumbers = new int[lengthCandidate];
-            convertingNumberToArray(arrayNumbers, lengthCandidate, candidateForHappyNumber);
+            arrayNumbers = convertingNumberToArray(lengthCandidate, candidateForHappyNumber);
             int counterOfNonZeroDigits = countingNonZeroDigints(arrayNumbers, lengthCandidate);
             int sum = calculatingTheAmount(arrayNumbers, lengthCandidate, counterOfNonZeroDigits);
             if (sum == -1) {
