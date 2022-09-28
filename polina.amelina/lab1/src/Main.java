@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Main {
+    private static final int MIN_COMMANDS_AMOUNT = 1;
+    private static final int MAX_COMMANDS_AMOUNT = 10000;
+    private static final int MIN_OBSTACLES_AMOUNT = 0;
+    private static final int MAX_OBSTACLES_AMOUNT = 10000;
+    private static final int MIN_OBSTACLE = -3 * MAX_OBSTACLES_AMOUNT;
+    private static final int MAX_OBSTACLE = 3 * MAX_OBSTACLES_AMOUNT;
 
     public static void main(String[] args) {
 
@@ -14,8 +20,6 @@ public class Main {
 
     private static int[] readCommands() {
 
-        int MIN_COMMANDS_AMOUNT = 1;
-        int MAX_COMMANDS_AMOUNT = 10000;
         Scanner scanner = new Scanner(System.in);
 
         int commandsLength = MIN_COMMANDS_AMOUNT - 1;
@@ -58,10 +62,6 @@ public class Main {
 
     private static int[][] readObstacles() {
 
-        int MIN_OBSTACLES_AMOUNT = 0;
-        int MAX_OBSTACLES_AMOUNT = 10000;
-        int MIN_OBSTACLE = -3 * MAX_OBSTACLES_AMOUNT;
-        int MAX_OBSTACLE = 3 * MAX_OBSTACLES_AMOUNT;
         Scanner scanner = new Scanner(System.in);
 
         int obstaclesLength = MIN_OBSTACLES_AMOUNT - 1;
