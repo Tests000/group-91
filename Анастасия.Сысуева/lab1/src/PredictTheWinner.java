@@ -28,7 +28,6 @@ public class PredictTheWinner {
                 input.next();
             }
             size = input.nextInt();
-
         } while (restrictionsChecking(MINSIZE_CONST, MAXSIZE_CONST, size));
 
         int[] nums = new int[size];
