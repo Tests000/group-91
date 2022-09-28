@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Lamp extends Tovar {
+public class Lamp extends Tovar implements LampImpl {
     public Lamp(String model, int voltage, int amper, int srokGodnosti, int cost) {
         super(cost, srokGodnosti);
         this.model = model;
