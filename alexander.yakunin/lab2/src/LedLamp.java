@@ -1,34 +1,11 @@
 import java.util.Objects;
 
-public class LedLamp extends Tovar implements LampImpl {
-    public LedLamp(String model, int countOfLED, int cost, int srokGodnosti) {
-        super(cost, srokGodnosti);
-        this.model = model;
+public class LedLamp extends Lamp {
+    private final int countOfLED;
+
+    public LedLamp(String model, int voltage, int amper, int countOfLED, int cost, int srokGodnosti) {
+        super(model, voltage, amper, srokGodnosti, cost);
         this.countOfLED = countOfLED;
-        this.isOn = false;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + "\nКоличество ламп: " + this.countOfLED;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(model, countOfLED, isOn);
-    }
-
-    @Override
-    public void build() {
-        System.out.println("Вы прикрепили LED лампу к столу и включили её в розетку!");
-    }
-
-    public boolean equals(Object obj) {
-        if (!(obj instanceof LedLamp))
-            return false;
-
-        return this.model.equalsIgnoreCase(((LedLamp) obj).model)
-                && this.countOfLED == ((LedLamp) obj).countOfLED;
     }
 
     public void powerLamp() {
@@ -38,7 +15,31 @@ public class LedLamp extends Tovar implements LampImpl {
         System.out.println(msg);
     }
 
-    private final String model;
-    private final int countOfLED;
-    private boolean isOn;
+    @Override
+    public String toString() {
+        return super.toString() + "\nКоличество ламп: " + this.countOfLED;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(countOfLED);
+    }
+
+    @Override
+    public void build() {
+        System.out.println("Вы прикрепили LED лампу к столу и включили её в розетку!");
+    }
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof LedLamp)) {
+            return false;
+        } else {
+
+            LedLamp objLedLamp = (LedLamp) obj;
+            return this.model.equalsIgnoreCase(objLedLamp.model)
+                    && this.voltage == objLedLamp.voltage
+                    && this.amperStrength == objLedLamp.amperStrength
+                    && this.countOfLED == (objLedLamp).countOfLED;
+        }
+    }
 }

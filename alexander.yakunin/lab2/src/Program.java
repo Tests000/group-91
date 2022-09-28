@@ -1,29 +1,30 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
-        Tovar shkaf1 = new Shkaf("IKEA шкаф", 3, 365, 10000);
-        Tovar shkaf2 = new Shkaf("IKEA шкаф", 3, 365, 10000);
-        Tovar shkaf3 = new Shkaf("IKEA шкаф", 3, 367, 11000);
+        Good shkaf1 = new Shkaf("IKEA шкаф", 3, 365, 10000);
+        Good shkaf2 = new Shkaf("IKEA шкаф", 3, 365, 10000);
+        Good shkaf3 = new Shkaf("IKEA шкаф", 3, 367, 11000);
 
-        Tovar lampa = new Lamp("Brighter", 230, 2, 366, 5000);
-        Tovar ledLamp = new LedLamp("Mega", 230, 3, 3);
+        Good lampa = new Lamp("Brighter", 230, 2, 366, 5000);
+        Good ledLamp = new LedLamp("Mega", 230, 3, 3, 5000, 365);
 
-        ArrayList<Tovar> tovars = new ArrayList<Tovar>();
+        List<Good> tovars = new ArrayList<>();
         tovars.add(shkaf1);
         tovars.add(shkaf2);
         tovars.add(shkaf3);
         tovars.add(lampa);
         tovars.add(ledLamp);
 
-        for (Tovar tovar : tovars) {
+        for (Good tovar : tovars) {
             tovar.sale();
             System.out.println();
             tovar.build();
             System.out.println();
 
 
-            if(tovar instanceof LedLamp lamp) {
+            if (tovar instanceof LedLamp lamp) {
                 lamp.powerLamp();
                 System.out.println();
             }

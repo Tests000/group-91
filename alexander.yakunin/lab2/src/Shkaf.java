@@ -1,6 +1,10 @@
 import java.util.Objects;
 
-public class Shkaf extends Tovar {
+public class Shkaf extends Good {
+
+    private final String model;
+    private final int countOfPolkas;
+
     public Shkaf(String model, int countOfPolkas, int srokGodnosti, int cost) {
         super(cost, srokGodnosti);
         this.model = model;
@@ -14,7 +18,7 @@ public class Shkaf extends Tovar {
 
     @Override
     public String toString() {
-        return "Модель: " + this.model + "\nКоличество полок: " + this.countOfPolkas;
+        return super.toString() + "Модель: " + this.model + "\nКоличество полок: " + this.countOfPolkas;
     }
 
     @Override
@@ -36,6 +40,4 @@ public class Shkaf extends Tovar {
         return Objects.hash(model, countOfPolkas);
     }
 
-    private final String model;
-    private final int countOfPolkas;
 }
