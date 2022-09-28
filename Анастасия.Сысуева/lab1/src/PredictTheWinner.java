@@ -14,7 +14,7 @@ public class PredictTheWinner {
     }
 
     public static boolean restrictionsChecking(final int minValue, final int maxValue, int inputValue) {
-        return (minValue > inputValue && inputValue > maxValue);
+        return (minValue > inputValue || inputValue > maxValue);
     }
 
     public static int[] inputArray() {
@@ -23,16 +23,30 @@ public class PredictTheWinner {
 
         do {
             System.out.println("Введите размер массива (от 1 до 20): ");
+            while(!input.hasNextInt()){
+                System.out.println("Введено не int значение");
+                input.next();
+            }
             size = input.nextInt();
+
         } while (restrictionsChecking(MINSIZE_CONST, MAXSIZE_CONST, size));
 
         int[] nums = new int[size];
         System.out.println("Введите " + size + " элемент(а/ов) массива (значения элементов от 0 до 107): ");
 
         for (int i = 0; i < nums.length; i++) {
+            while(!input.hasNextInt()){
+                System.out.println("Введено не int значение");
+                input.next();
+            }
             nums[i] = input.nextInt();
+
             while (restrictionsChecking(MINELEM_CONST, MAXELEM_CONST, nums[i])) {
                 System.out.println("Введите " + (i + 1) + " элемент массива (значения элементов от 0 до 107): ");
+                while(!input.hasNextInt()){
+                    System.out.println("Введено не int значение");
+                    input.next();
+                }
                 nums[i] = input.nextInt();
             }
         }
