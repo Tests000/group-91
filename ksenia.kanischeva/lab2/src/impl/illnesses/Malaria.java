@@ -10,7 +10,7 @@ public class Malaria extends DeadlyIllness {
 
 
     public Malaria() {
-        super(DAMAGE,NAME, LIFE_TIME);
+        super(DAMAGE, NAME, LIFE_TIME);
     }
 
     @Override

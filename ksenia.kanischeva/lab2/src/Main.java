@@ -15,13 +15,13 @@ public class Main {
 
         illnesses.forEach(ill -> {
             ill.doBadThing();
-            if (ill instanceof DeadlyIllness){
+            if (ill instanceof DeadlyIllness) {
                 var message = ((DeadlyIllness) ill).getLifeTime();
                 System.out.println(message);
                 ((DeadlyIllness) ill).dead();
             }
 
-            if (ill instanceof UndeadlyIllness){
+            if (ill instanceof UndeadlyIllness) {
                 var message = ((UndeadlyIllness) ill).getGoodNews();
                 System.out.println(message);
                 ((UndeadlyIllness) ill).leave();
@@ -31,7 +31,6 @@ public class Main {
             System.out.println("------------------");
 
         });
-
 
 
     }

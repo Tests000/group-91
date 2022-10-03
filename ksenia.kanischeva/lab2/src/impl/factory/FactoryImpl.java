@@ -13,7 +13,7 @@ import java.util.List;
 public class FactoryImpl implements Factory {
     final List<AbstractIllness> illnesses = new ArrayList<>();
 
-    public FactoryImpl(){
+    public FactoryImpl() {
         illnesses.addAll((List.of(new Cold(), new Malaria(), new Scoliosis(), new Tuberculosis())));
     }
 

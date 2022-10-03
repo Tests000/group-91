@@ -1,6 +1,5 @@
 package impl.illnesses;
 
-import core.illnesses.Illness;
 import core.illnesses.UndeadlyIllness;
 
 public class Cold extends UndeadlyIllness {
@@ -17,8 +16,6 @@ public class Cold extends UndeadlyIllness {
     public String toString() {
         return super.toString() + NAME;
     }
-
-
 
 
 }

@@ -6,7 +6,7 @@ public abstract class DeadlyIllness extends AbstractIllness {
 
     private final int lifeTime;
 
-    public DeadlyIllness(int damage,String name, int lifeTime) {
+    public DeadlyIllness(int damage, String name, int lifeTime) {
         super(damage, name);
         this.lifeTime = lifeTime;
     }
@@ -21,7 +21,7 @@ public abstract class DeadlyIllness extends AbstractIllness {
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + "смертельная болезнь - ";
     }
 

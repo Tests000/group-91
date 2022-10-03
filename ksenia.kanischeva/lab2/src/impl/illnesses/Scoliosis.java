@@ -12,7 +12,7 @@ public class Scoliosis extends UndeadlyIllness {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + NAME;
     }
 }
