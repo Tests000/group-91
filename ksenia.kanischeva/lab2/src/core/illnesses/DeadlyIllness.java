@@ -6,13 +6,17 @@ public abstract class DeadlyIllness extends AbstractIllness {
 
     private final int lifeTime;
 
-    public DeadlyIllness(int damage, int lifeTime) {
-        super(damage);
+    public DeadlyIllness(int damage,String name, int lifeTime) {
+        super(damage, name);
         this.lifeTime = lifeTime;
     }
 
-    public void printLifeTime() {
-        System.out.println("Осталось " + lifeTime + "дней");
+    public void dead() {
+        System.out.println("Человек умер...");
+    }
+
+    public String getLifeTime() {
+        return "Осталось " + lifeTime + " дней...";
     }
 
 
@@ -20,5 +24,6 @@ public abstract class DeadlyIllness extends AbstractIllness {
     public String toString(){
         return super.toString() + "смертельная болезнь - ";
     }
+
 
 }
