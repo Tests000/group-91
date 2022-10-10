@@ -1,6 +1,6 @@
-package Classes;
+package classes;
 
-import Interfaces.Product;
+import interfaces.Product;
 
 public abstract class Good implements Product {
 

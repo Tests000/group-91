@@ -1,6 +1,6 @@
-package Classes;
+package classes;
 
-import Interfaces.Powerable;
+import interfaces.Powerable;
 
 import java.util.Objects;
 

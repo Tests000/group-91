@@ -1,7 +1,7 @@
-import Classes.Good;
-import Classes.Lamp;
-import Classes.LedLamp;
-import Classes.Shkaf;
+import classes.Good;
+import classes.Lamp;
+import classes.LedLamp;
+import classes.Shkaf;
 
 import java.util.ArrayList;
 import java.util.List;
