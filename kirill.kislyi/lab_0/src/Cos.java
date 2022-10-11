@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class Cos{
+public class Cos {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the number of iterations for the \"for\" cycle: ");
         int numOfIterations = in.nextInt();
@@ -17,9 +17,8 @@ public class Cos{
     public static double CosinusFor(int iter_, double x_) {
         double result = 1.0;
         double currentAdd = 1.0;
-        for(int i=0; i<=iter_; i++)
-        {
-            currentAdd = currentAdd * (-1) * x_ * x_ / ((i*2 + 1) * (i*2  +2));//добиваем ещё по два числа до нужного факториала
+        for (int i = 0; i <= iter_; i++) {
+            currentAdd = currentAdd * (-1) * x_ * x_ / ((i * 2 + 1) * (i * 2 + 2));//добиваем ещё по два числа до нужного факториала
             result += currentAdd;
         }
 
@@ -29,10 +28,9 @@ public class Cos{
     public static double CosinusWhile(double epsilon_, double x_) {
         double result = 1.0;
         double currentAdd = 1.0;
-        int i =0;
-        while (Math.abs(currentAdd) > epsilon_)
-        {
-            currentAdd = currentAdd * (-1) * x_ * x_ / ((i*2 + 1) * (i*2  +2));//добиваем ещё по два числа до нужного факториала
+        int i = 0;
+        while (Math.abs(currentAdd) > epsilon_) {
+            currentAdd = currentAdd * (-1) * x_ * x_ / ((i * 2 + 1) * (i * 2 + 2));//добиваем ещё по два числа до нужного факториала
             result += currentAdd;
             i++;
         }
