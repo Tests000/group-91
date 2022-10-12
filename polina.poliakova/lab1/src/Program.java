@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 public class Program {
     final static int MIN_LENGTH = 3, MINSIZE_CONST = 1, MAXSIZE_CONST = 10000;
-    public static int findMaxSubarray(int[] arr) {
+    public static int findMaxSubarray(int[] arr)  {
         int currentLength, currentIndex = 0, maxLength = 0;
         boolean isRightPart, isLeftPart;
         while (currentIndex < arr.length - 1) {
@@ -45,11 +45,11 @@ public class Program {
             if (isLeftPart && isRightPart && currentLength > maxLength)
                 maxLength = currentLength;
         }
-        return (maxLength >= 3) ? (maxLength + 1) : 0;
+        return (maxLength >= MIN_LENGTH) ? (maxLength + 1) : 0;
     }
 
-    public static boolean isInRange(int minElem, int maxElem, int number){
-        return number >= minElem && number <= maxElem;
+    public static boolean isNotInRange(int minElem, int maxElem, int number){
+        return number <= minElem || number >= maxElem;
     }
 
     public static int[] inputArray() {
@@ -62,7 +62,7 @@ public class Program {
                 in.next();
             }
             size = in.nextInt();
-        } while (!isInRange(MINSIZE_CONST, MAXSIZE_CONST, size));
+        } while (isNotInRange(MINSIZE_CONST, MAXSIZE_CONST, size));
 
         int[] nums = new int[size];
         System.out.println("Введите " + size + " элемент(а/ов) массива (значения элементов от 0 до 10000): ");
@@ -74,7 +74,7 @@ public class Program {
             }
             nums[i] = in.nextInt();
 
-            while (!isInRange(MINSIZE_CONST, MAXSIZE_CONST, nums[i])) {
+            while (isNotInRange(MINSIZE_CONST, MAXSIZE_CONST, nums[i])) {
                 System.out.println("Введите " + (i + 1) + " элемент массива (значения элементов от 0 до 10000): ");
                 while (!in.hasNextInt()) {
                     System.out.println("Введено не int значение");
@@ -87,7 +87,7 @@ public class Program {
     }
 
     public static void main(String[] args) {
-        int arr[] = {10, 1, 2, 3, 2, 8, 9, 11, 12};
+        //int array[] = {10, 1, 2, 3, 2, 8, 9, 11, 12};
         int[] arrayNum = inputArray();
 
         int res = findMaxSubarray(arrayNum);
