@@ -2,11 +2,11 @@ import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
-        char[][] inputArr = Sudoku.inputBoard();
+
         Sudoku sudoku;
 
         try {
-            sudoku = new Sudoku(inputArr);
+            sudoku = Sudoku.getSudoku();
         } catch (InputMismatchException e) {
             e.printStackTrace();
             System.out.println("Было введено невалидное судоку :(");

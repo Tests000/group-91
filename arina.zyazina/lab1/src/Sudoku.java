@@ -6,7 +6,7 @@ public class Sudoku {
     static private final int BOX_LENGTH = 3;
     static private final String CORRECT_SYMBOLS = "123456789.";
 
-    int[][] sudokuBoard;
+    private final int[][] sudokuBoard;
 
     public Sudoku(char[][] inputArr) {
         sudokuBoard = new int[MAX_LENGTH][MAX_LENGTH];
@@ -24,14 +24,19 @@ public class Sudoku {
         }
     }
 
-    public static char[][] inputBoard() {
-        char[][] resultBoard = new char[MAX_LENGTH][MAX_LENGTH];
-        String bufString;
+    public static Sudoku getSudoku() {
+        char[][] inputArr = Sudoku.inputBoard();
+        return new Sudoku(inputArr);
+    }
+
+    private static char[][] inputBoard() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Введите частично заполненное судоку");
         System.out.println("Судоку состоит из 9 строк, каждая строка содержит 9 символов, символы разделяются одним пробелом");
         System.out.println("Допускаемые символы: цифры от 1 до 9 и '.'");
+        String bufString;
+        char[][] resultBoard = new char[MAX_LENGTH][MAX_LENGTH];
         for (int i = 0; i < MAX_LENGTH; i++) {
             bufString = sc.nextLine();
             while (!isCorrectLine(bufString)) {
