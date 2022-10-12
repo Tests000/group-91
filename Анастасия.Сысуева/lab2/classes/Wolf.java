@@ -12,6 +12,10 @@ public class Wolf extends Predatory {
         this.isTheLider = isTheLider;
     }
 
+    public void aboutPack(){
+        System.out.println("Я волк и состаю в стае");
+    }
+
     @Override
     public void eatingFlesh(){
         System.out.println("Волк ест мясо, которое ему принесли\n");

@@ -2,6 +2,8 @@ package classes;
 
 import interfaces.Animal;
 
+import java.util.Objects;
+
 public abstract class Predatory implements Animal {
 
     protected String animalFamily;
@@ -34,5 +36,29 @@ public abstract class Predatory implements Animal {
         } else {
             System.out.printf("Хищник заботится о %d детеныш(е/ах)%n", this.countBaby);
         }
+    }
+
+    public String toString(){
+        return "\nСемейство: " + this.animalFamily + "; агрессия: " + this.aggression + "; кол-во детенышей: " + this.countBaby;
+    }
+
+    public boolean equals(Object ob) {
+        if (ob == this) {
+            return true;
+        }
+
+        if (ob == null || ob.getClass() != getClass()) {
+            return false;
+        }
+
+        Predatory pr = (Predatory) ob;
+
+        return Objects.equals(this.animalFamily, pr.animalFamily) &&
+                this.aggression == pr.aggression &&
+                this.countBaby == pr.countBaby;
+    }
+
+    public int hashCode(){
+        return Objects.hash(animalFamily, aggression, countBaby);
     }
 }

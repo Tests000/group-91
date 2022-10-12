@@ -32,6 +32,9 @@ public class Program {
             predatory.move();
             predatory.careOfBaby();
             predatory.eatingFlesh();
+            if (predatory instanceof Wolf){
+                ((Wolf) predatory).aboutPack();
+            }
         }
         System.out.println("О растениях: \n");
         for(Insectivores insectivor : insectivores){
