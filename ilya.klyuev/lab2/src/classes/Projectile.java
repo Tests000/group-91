@@ -1,8 +1,7 @@
 package classes;
 
 // снаряд
-public abstract class Projectile
-        extends AmmunitionImpl{
+public abstract class Projectile extends AmmunitionImpl{
     // радиус поражения в м
     protected final float damageRadius;
 

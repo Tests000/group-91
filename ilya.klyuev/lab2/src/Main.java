@@ -24,35 +24,11 @@ public class Main {
 
     private static ArrayList<Ammunition> getItems(){
         var items = new ArrayList<Ammunition>();
-        items.add(
-                new FragmentationProjectile(
-                        "BBB",
-                        30,
-                        50)
-        );
-        items.add(
-                new ArmorPiercingProjectile(
-                        "BBB",
-                        50,
-                        20)
-        );
-        items.add(
-                new ArmorPiercingProjectile(
-                        "AAA-123",
-                        100,
-                        50)
-        );
-        items.add(
-                new FragmentationProjectile(
-                        "AD-666",
-                        666,
-                        6666)
-        );
-        items.add(
-                new Cartridge(
-                        "AAA-123",
-                        20)
-        );
+        items.add(new FragmentationProjectile("BBB", 30, 50));
+        items.add(new ArmorPiercingProjectile("BBB", 50, 20));
+        items.add(new ArmorPiercingProjectile("AAA-123", 100, 50));
+        items.add(new FragmentationProjectile("AD-666", 666, 6666));
+        items.add(new Cartridge("AAA-123", 20));
         return items;
     }
 }

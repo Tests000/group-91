@@ -5,8 +5,7 @@ import interfaces.Ammunition;
 import java.util.Objects;
 
 // реализация интерфейса
-public abstract class AmmunitionImpl
-        implements Ammunition {
+public abstract class AmmunitionImpl implements Ammunition {
 
     // имя снаряда - может что-то вроде серии, что будет отличать одну партию от другой
     // имеется в виду партия снарядов в одном из типов
@@ -20,8 +19,12 @@ public abstract class AmmunitionImpl
         isUsed = false;
     }
 
-    @Override
-    public abstract String toString();
+    protected String isUsedToString(){
+        return
+                isUsed ?
+                "Использовано\n" :
+                "Не использовано\n";
+    }
 
     @Override
     public void showInfo(){
@@ -52,6 +55,9 @@ public abstract class AmmunitionImpl
     }
 
     @Override
+    public abstract String toString();
+
+    @Override
     public int hashCode() {
         return Objects.hashCode(name);
     }
@@ -61,12 +67,5 @@ public abstract class AmmunitionImpl
         if (!obj.getClass().equals(this.getClass()))
             return false;
         return ((Projectile)obj).name.equalsIgnoreCase(name);
-    }
-
-    protected String isUsedToString(){
-        return
-                isUsed ?
-                "Использовано\n" :
-                "Не использовано\n";
     }
 }
