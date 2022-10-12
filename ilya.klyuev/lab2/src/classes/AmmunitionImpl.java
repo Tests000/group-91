@@ -28,7 +28,7 @@ public abstract class AmmunitionImpl implements Ammunition {
 
     @Override
     public void showInfo(){
-        System.out.print(toString());
+        System.out.print(this);
     }
 
     @Override
