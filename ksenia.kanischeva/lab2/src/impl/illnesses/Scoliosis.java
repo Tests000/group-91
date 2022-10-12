@@ -4,15 +4,12 @@ import core.illnesses.UndeadlyIllness;
 
 public class Scoliosis extends UndeadlyIllness {
 
-    private static final int DAMAGE = 3;
-    private static final String NAME = "сколиоз";
-
     public Scoliosis() {
-        super(DAMAGE, NAME);
+        super(3, "сколиоз");
     }
 
     @Override
     public String toString() {
-        return super.toString() + NAME;
+        return super.toString() + this.getName();
     }
 }

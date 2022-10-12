@@ -18,6 +18,18 @@ public abstract class DeadlyIllness extends AbstractIllness {
         return "Осталось " + lifeTime + " дней...";
     }
 
+    @Override
+    public boolean equals(Object illness) {
+        if (illness instanceof DeadlyIllness) {
+            return lifeTime == ((DeadlyIllness) illness).lifeTime && super.equals(illness);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
     @Override
     public String toString() {
