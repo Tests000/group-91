@@ -58,7 +58,7 @@ public class Program {
     }
 
     public static boolean isNotInRange(int minElem, int maxElem, int number) {
-        return number <= minElem || number >= maxElem;
+        return number < minElem || number > maxElem;
     }
 
     public static int[] inputArray() {
