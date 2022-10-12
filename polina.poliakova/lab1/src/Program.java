@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 public class Program {
     final static int MIN_LENGTH = 3, MINSIZE_CONST = 1, MAXSIZE_CONST = 10000;
-    public static int findMaxSubarray(int[] arr)  {
+    public static int findMaxSubarray(int[] arr) {
         int currentLength, currentIndex = 0, maxLength = 0;
         boolean isRightPart, isLeftPart;
         while (currentIndex < arr.length - 1) {
@@ -42,8 +42,9 @@ public class Program {
                 currentLength++;
                 isRightPart = true;
             }
-            if (isLeftPart && isRightPart && currentLength > maxLength)
+            if (isLeftPart && isRightPart && currentLength > maxLength) {
                 maxLength = currentLength;
+            }
         }
         return (maxLength >= MIN_LENGTH) ? (maxLength + 1) : 0;
     }
@@ -87,9 +88,7 @@ public class Program {
     }
 
     public static void main(String[] args) {
-        //int array[] = {10, 1, 2, 3, 2, 8, 9, 11, 12};
         int[] arrayNum = inputArray();
-
         int res = findMaxSubarray(arrayNum);
         System.out.println("Максимальная длина горного массива:");
         System.out.println(res);
