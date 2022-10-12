@@ -2,17 +2,15 @@ public class ValidateIpAddress {
     public static String validateIpAddress(String ip) {
         if (isIPv4(ip)) {
             return "IPv4";
-        }
-        else if (isIPv6(ip)) {
+        } else if (isIPv6(ip)) {
             return "IPv6";
-        }
-        else {
+        } else {
             return "Neither";
         }
     }
 
     private static boolean isIPv4(String ip) {
-        if (ip.length() < 7 || ip.charAt(0) == '.' || ip.charAt(ip.length() - 1) == '.' ) {
+        if (ip.length() < 7 || ip.charAt(0) == '.' || ip.charAt(ip.length() - 1) == '.') {
             return false;
         }
 
@@ -21,7 +19,7 @@ public class ValidateIpAddress {
             return false;
         }
 
-        for (String value:values) {
+        for (String value : values) {
             if (!isCorrectIPv4Value(value)) {
                 return false;
             }
@@ -58,7 +56,7 @@ public class ValidateIpAddress {
             return false;
         }
 
-        for (String value:values) {
+        for (String value : values) {
             if (!isCorrectIPv6Value(value)) {
                 return false;
             }
