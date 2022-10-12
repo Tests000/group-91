@@ -1,6 +1,4 @@
 package core.illnesses;
-
-
 import java.util.Objects;
 
 public abstract class DeadlyIllness extends AbstractIllness {
