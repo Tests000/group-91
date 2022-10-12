@@ -1,6 +1,5 @@
 package core.illnesses;
 
-import core.illnesses.AbstractIllness;
 
 public abstract class DeadlyIllness extends AbstractIllness {
 

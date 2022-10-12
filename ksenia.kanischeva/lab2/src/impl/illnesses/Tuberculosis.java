@@ -14,6 +14,6 @@ public class Tuberculosis extends DeadlyIllness {
 
     @Override
     public String toString() {
-        return super.toString() + NAME;
+        return super.toString() + this.getName();
     }
 }

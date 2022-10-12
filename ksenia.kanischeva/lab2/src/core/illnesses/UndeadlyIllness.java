@@ -11,14 +11,14 @@ public abstract class UndeadlyIllness extends AbstractIllness {
         System.out.println("Человек здоров!!");
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + "несмертельная болезнь - ";
+    public String getGoodNews() {
+        return "Хорошая новость для тебя, ты скоро вылечишься от " + super.getName();
     }
 
 
-    public String getGoodNews() {
-        return "Хорошая новость для тебя, ты скоро вылечишься от " + super.getName();
+    @Override
+    public String toString() {
+        return super.toString() + "несмертельная болезнь - ";
     }
 
 }

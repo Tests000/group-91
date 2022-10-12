@@ -9,13 +9,6 @@ public abstract class AbstractIllness implements Illness {
         this.name = name;
     }
 
-
-    @Override
-    public String toString() {
-        return "Привет, я ";
-    }
-
-
     @Override
     public String getName() {
         return name;
@@ -51,5 +44,10 @@ public abstract class AbstractIllness implements Illness {
     @Override
     public int hashCode() {
         return name.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Привет, я ";
     }
 }
