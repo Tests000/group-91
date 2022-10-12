@@ -34,8 +34,7 @@ import java.util.Scanner;
 
         0 <= tomatoSlices, cheeseSlices <= 107
 */
-public class Burgers
-{
+public class Burgers {
     /*  Кол-во кусочков томата = 4 * кол-во БТ + 2 * кол-во Дж  (1)
         Кол-во кусочков сыра = кол-во БТ + кол-во Дж             (2)
 
@@ -51,61 +50,53 @@ public class Burgers
         Если эти числа подходят под возможное кол-во бургеров (>=0 и целые), то все корректно, иначе задача не решается.
      */
 
-    public List<Integer> numOfBurgers(int tomatoSlices, int cheeseSlices)
-    {
+    public List<Integer> numOfBurgers(int tomatoSlices, int cheeseSlices) {
         List<Integer> answer = new ArrayList<>();
 
-        double numberOfBT = (double)tomatoSlices/2 - cheeseSlices;
-        double numberOfJun = 2*cheeseSlices - (double)tomatoSlices/2;
+        double numberOfBT = (double) tomatoSlices / 2 - cheeseSlices;
+        double numberOfJun = 2 * cheeseSlices - (double) tomatoSlices / 2;
 
-        if (numberOfBT < 0 || numberOfJun < 0)
-        {return answer;}
+        if (numberOfBT < 0 || numberOfJun < 0) {
+            return answer;
+        }
 
-        if (numberOfBT != (int)numberOfBT || numberOfJun != (int)numberOfJun)
-        {return answer;}
-        else
-        {
-            answer.add((int)numberOfBT);
-            answer.add((int)numberOfJun);
+        if (numberOfBT != (int) numberOfBT || numberOfJun != (int) numberOfJun) {
+            return answer;
+        } else {
+            answer.add((int) numberOfBT);
+            answer.add((int) numberOfJun);
             return answer;
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int tomatoSlices=-1, cheeseSlices=-1;
+        int tomatoSlices = -1, cheeseSlices = -1;
         do {
             System.out.print("Input amount of tomatoSlices: ");
-            while (!in.hasNextInt())
-            {
+            while (!in.hasNextInt()) {
                 System.out.println("Inappropriate amount of tomatoSlices  ");
                 System.out.println("Try one more time please: ");
                 in.next();
             }
             tomatoSlices = in.nextInt();
-        }
-        while (tomatoSlices<0 || tomatoSlices>107);
+        } while (tomatoSlices < 0 || tomatoSlices > 107);
 
         do {
             System.out.print("Input amount of cheeseSlices: ");
-            while (!in.hasNextInt())
-            {
+            while (!in.hasNextInt()) {
                 System.out.println("Inappropriate amount of cheeseSlices  ");
                 System.out.println("Try one more time please: ");
                 in.next();
             }
             cheeseSlices = in.nextInt();
-        }
-        while (cheeseSlices<0 || cheeseSlices>107);
+        } while (cheeseSlices < 0 || cheeseSlices > 107);
         Burgers burgers = new Burgers();
-        List<Integer> answer = burgers.numOfBurgers(tomatoSlices,cheeseSlices);
+        List<Integer> answer = burgers.numOfBurgers(tomatoSlices, cheeseSlices);
         System.out.println(answer);
 
 
     }
-
-
 
 
 }
