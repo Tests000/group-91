@@ -23,7 +23,7 @@ Output: 0
 import java.util.Scanner;
 
 public class Program {
-    final static int MIN_LENGTH = 3, MINSIZE_CONST = 1, MAXSIZE_CONST = 10000;
+    final static int MIN_ARRAY_LENGTH = 3, MIN_SIZE_CONST = 1, MAX_SIZE_CONST = 10000;
     public static int findMaxSubarray(int[] arr) {
         int currentLength, currentIndex = 0, maxLength = 0;
         boolean isRightPart, isLeftPart;
@@ -46,7 +46,7 @@ public class Program {
                 maxLength = currentLength;
             }
         }
-        return (maxLength >= MIN_LENGTH) ? (maxLength + 1) : 0;
+        return (maxLength >= MIN_ARRAY_LENGTH) ? (maxLength + 1) : 0;
     }
 
     public static boolean isNotInRange(int minElem, int maxElem, int number){
@@ -63,28 +63,28 @@ public class Program {
                 in.next();
             }
             size = in.nextInt();
-        } while (isNotInRange(MINSIZE_CONST, MAXSIZE_CONST, size));
+        } while (isNotInRange(MIN_SIZE_CONST, MAX_SIZE_CONST, size));
 
-        int[] nums = new int[size];
+        int[] numbers = new int[size];
         System.out.println("Введите " + size + " элемент(а/ов) массива (значения элементов от 0 до 10000): ");
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             while (!in.hasNextInt()) {
                 System.out.println("Введено не int значение");
                 in.next();
             }
-            nums[i] = in.nextInt();
+            numbers[i] = in.nextInt();
 
-            while (isNotInRange(MINSIZE_CONST, MAXSIZE_CONST, nums[i])) {
+            while (isNotInRange(MIN_SIZE_CONST, MAX_SIZE_CONST, numbers[i])) {
                 System.out.println("Введите " + (i + 1) + " элемент массива (значения элементов от 0 до 10000): ");
                 while (!in.hasNextInt()) {
                     System.out.println("Введено не int значение");
                     in.next();
                 }
-                nums[i] = in.nextInt();
+                numbers[i] = in.nextInt();
             }
         }
-        return nums;
+        return numbers;
     }
 
     public static void main(String[] args) {
