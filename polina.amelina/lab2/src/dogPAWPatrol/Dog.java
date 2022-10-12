@@ -1,25 +1,27 @@
+package dogPAWPatrol;
+
 public abstract class Dog {
 
-    protected final String Name;
-    protected final String Breed;
-    protected final Integer Age;
+    protected final String name;
+    protected final String breed;
+    protected final Integer age;
 
     public Dog(String name, String breed, Integer age) {
-        Name = name;
-        Breed = breed;
-        Age = age;
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return Name + ": " + Breed + ", возраст: " + Age;
+        return name + ": " + breed + ", возраст: " + age;
     }
 
     @Override
     public boolean equals(Object obj) {
 
         if (obj instanceof Dog dog) {
-            return Name.equals(dog.Name) && Breed.equals(dog.Breed) && Age.equals(dog.Age);
+            return name.equals(dog.name) && breed.equals(dog.breed) && age.equals(dog.age);
         }
 
         return false;

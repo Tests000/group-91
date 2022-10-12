@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import dogPAWPatrol.*;
+import genericPAWPatrol.*;
+import humanPAWPatrol.*;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -20,18 +24,18 @@ public class Main {
         for (PAWPatrolMember member : members) {
 
             System.out.printf(member.toString() + "%n");
-            member.UseVehicle();
+            member.useVehicle();
             System.out.println();
-            member.SayCatchphrase();
+            member.sayCatchphrase();
             System.out.println();
 
             if (member instanceof PAWPatrolDogMember dog) {
-                dog.UseSpecialPower();
+                dog.useSpecialPower();
                 System.out.println();
             }
 
             if (member instanceof AllergicPAWPatrolDogMember allergic) {
-                allergic.SmellAllergy();
+                allergic.smellAllergy();
                 System.out.println();
             }
         }

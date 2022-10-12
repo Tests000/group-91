@@ -1,23 +1,25 @@
+package humanPAWPatrol;
+
 public abstract class Human {
 
-    protected final String Name;
-    protected final Integer Age;
+    protected final String name;
+    protected final Integer age;
 
     public Human(String name, Integer age) {
-        Name = name;
-        Age = age;
+        this.name = name;
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return Name + ", возраст: " + Age;
+        return name + ", возраст: " + age;
     }
 
     @Override
     public boolean equals(Object obj) {
 
         if (obj instanceof Human human) {
-            return Name.equals(human.Name) && Age.equals(human.Age);
+            return name.equals(human.name) && age.equals(human.age);
         }
 
         return false;
