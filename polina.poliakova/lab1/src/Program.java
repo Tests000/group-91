@@ -23,14 +23,21 @@ Output: 0
 import java.util.Scanner;
 
 public class Program {
-    final static int MIN_ARRAY_LENGTH = 3, MIN_SIZE_CONST = 1, MAX_SIZE_CONST = 10000;
+    final static int MIN_ARRAY_LENGTH = 3;
+    final static int MIN_SIZE_CONST = 1;
+    final static int MAX_SIZE_CONST = 10000;
+
     public static int findMaxSubarray(int[] arr) {
-        int currentLength, currentIndex = 0, maxLength = 0;
-        boolean isRightPart, isLeftPart;
+        int currentLength;
+        int currentIndex = 0;
+        int maxLength = 0;
+        boolean isRightPart;
+        boolean isLeftPart;
         while (currentIndex < arr.length - 1) {
             isRightPart = false;
             isLeftPart = false;
             currentLength = 0;
+
             while (currentIndex + 1 <= arr.length - 1 && arr[currentIndex] < arr[currentIndex + 1]) {
                 currentIndex++;
                 currentLength++;
@@ -42,6 +49,7 @@ public class Program {
                 currentLength++;
                 isRightPart = true;
             }
+
             if (isLeftPart && isRightPart && currentLength > maxLength) {
                 maxLength = currentLength;
             }
