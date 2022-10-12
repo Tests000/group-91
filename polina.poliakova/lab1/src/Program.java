@@ -49,7 +49,7 @@ public class Program {
         return (maxLength >= MIN_ARRAY_LENGTH) ? (maxLength + 1) : 0;
     }
 
-    public static boolean isNotInRange(int minElem, int maxElem, int number){
+    public static boolean isNotInRange(int minElem, int maxElem, int number) {
         return number <= minElem || number >= maxElem;
     }
 
