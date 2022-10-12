@@ -1,8 +1,14 @@
 public class ValidateIpAddress {
     public static String validateIpAddress(String ip) {
-        if (isIPv4(ip)) return "IPv4";
-        else if (isIPv6(ip)) return "IPv6";
-        else return "Neither";
+        if (isIPv4(ip)) {
+            return "IPv4";
+        }
+        else if (isIPv6(ip)) {
+            return "IPv6";
+        }
+        else {
+            return "Neither";
+        }
     }
 
     private static boolean isIPv4(String ip) {
