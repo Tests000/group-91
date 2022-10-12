@@ -28,7 +28,7 @@ public abstract class DeadlyIllness extends AbstractIllness {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return super.hashCode() + lifeTime;
     }
 
     @Override
