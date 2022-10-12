@@ -29,6 +29,6 @@ public abstract class Dog {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return name.hashCode();
     }
 }

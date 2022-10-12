@@ -27,6 +27,6 @@ public abstract class Human {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return name.hashCode();
     }
 }
