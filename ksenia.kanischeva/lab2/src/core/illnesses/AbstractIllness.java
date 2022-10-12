@@ -1,8 +1,10 @@
 package core.illnesses;
 
+import java.util.Objects;
+
 public abstract class AbstractIllness implements Illness {
-    private final int damage;
-    private final String name;
+    protected final int damage;
+    protected final String name;
 
     public AbstractIllness(int damage, String name) {
         this.damage = damage;
@@ -43,7 +45,7 @@ public abstract class AbstractIllness implements Illness {
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return Objects.hash(damage, name);
     }
 
     @Override

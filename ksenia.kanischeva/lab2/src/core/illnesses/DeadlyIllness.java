@@ -1,9 +1,10 @@
 package core.illnesses;
 
 
-public abstract class DeadlyIllness extends AbstractIllness {
+import java.util.Objects;
 
-    private final int lifeTime;
+public abstract class DeadlyIllness extends AbstractIllness {
+    protected final int lifeTime;
 
     public DeadlyIllness(int damage, String name, int lifeTime) {
         super(damage, name);
@@ -28,7 +29,7 @@ public abstract class DeadlyIllness extends AbstractIllness {
 
     @Override
     public int hashCode() {
-        return super.hashCode() + lifeTime;
+        return Objects.hash(name, damage, lifeTime);
     }
 
     @Override
