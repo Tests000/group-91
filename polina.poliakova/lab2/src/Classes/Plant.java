@@ -1,4 +1,9 @@
+package Classes;
+
+import Interfaces.InterfacePlant;
+
 import java.util.Objects;
+
 public abstract class Plant implements InterfacePlant {
     protected final int height;
     protected boolean isNeedWatering = true;
@@ -16,7 +21,8 @@ public abstract class Plant implements InterfacePlant {
         }
     }
 
-    public void grow() {}
+    public void grow() {
+    }
 
     public boolean isNeedWatering() {
         return isNeedWatering;
@@ -32,10 +38,18 @@ public abstract class Plant implements InterfacePlant {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Plant)) return false;
-        Plant plant = (Plant) obj;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Plant plant)) {
+            return false;
+        }
         return name.equals(plant.name);
+    }
+
+    @Override
+    public String toString() {
+        return name + ", height = " + height + " ";
     }
 
     @Override
