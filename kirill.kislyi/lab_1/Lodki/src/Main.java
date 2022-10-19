@@ -29,16 +29,16 @@ public class Main {
 // Продолжаем повторять, пока люди не кончатся.
 
         int left = 0;
-        int right = weights.length;
+        int right = weights.length -1;
         while (left <= right) {
-            if (left + right < maxWeight) {
+            if (weights[left] + weights[right] <= maxWeight) {
                 left++;
                 right--;
-                result++;
             } else {
                 right--;
-                result++;
             }
+
+            result++;
         }
 
         return result;
