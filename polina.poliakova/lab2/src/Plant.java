@@ -1,6 +1,6 @@
 import java.util.Objects;
-public abstract class Plant {
-    public final int height;
+public abstract class Plant implements InterfacePlant {
+    protected final int height;
     protected boolean isNeedWatering = true;
     protected String name;
 
@@ -16,7 +16,7 @@ public abstract class Plant {
         }
     }
 
-    public void Grow() {}
+    public void grow() {}
 
     public boolean isNeedWatering() {
         return isNeedWatering;

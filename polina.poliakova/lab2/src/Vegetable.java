@@ -1,11 +1,10 @@
 public class Vegetable extends Plant {
-    private int prolificness;
+    protected int prolificness;
 
     public Vegetable(String name, int height, int prolificness) {
         super(name, height);
         this.prolificness = prolificness;
     }
-
 
     @Override
     public String toString() {
@@ -16,8 +15,8 @@ public class Vegetable extends Plant {
     }
 
     @Override
-    public final void Grow(){
-        String message = "Растение" + name+ "выросло на " + prolificness;
+    public final void grow() {
+        String message = "Растение " + name + " выросло на " + prolificness;
         System.out.printf(message);
     }
 
