@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -11,7 +12,7 @@ public class CorrectInput {
             try {
                 number = scanner.nextInt();
                 isCorrectInput = true;
-            } catch (Exception exception) {// TODO: 19.10.2022 указать конкетный exception котоый мы ловим
+            } catch (InputMismatchException exception) {// TODO: 19.10.2022 указать конкетный exception котоый мы ловим
                 System.out.println("Произошла ошибка при вводе. Повторите попытку");
                 scanner.nextLine();
                 exception.printStackTrace();
