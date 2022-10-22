@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class Cos{
+public class Cos {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the number of iterations for the \"for\" cycle: ");
         int numOfIterations = in.nextInt();
