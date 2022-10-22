@@ -1,15 +1,14 @@
 package input.random;
 
-import input.EmployeesAdd;
 import models.Employee;
 import factories.ListFactory;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RandomEmployeeAdd implements EmployeesAdd {
+public class RandomEmployeeAdd{
     private final ThreadLocalRandom random = ThreadLocalRandom.current();
-    @Override
+
     public List<Employee> inputEmployees(int performancesCount) {
         List<Employee> employeeList = ListFactory.createList();
 

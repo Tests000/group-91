@@ -1,4 +1,8 @@
 package input;
 
-public interface EmployeesAddFromInputStream extends EmployeesAdd {
+import models.Employee;
+import java.util.List;
+
+public interface EmployeesAddFromInputStream{
+    List<Employee> inputEmployees(int performancesCount);
 }

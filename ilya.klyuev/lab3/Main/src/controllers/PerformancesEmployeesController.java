@@ -1,7 +1,6 @@
 package controllers;
 
 import input.EmployeesAddFromInputStream;
-import input.EmployeesAdd;
 import input.random.RandomEmployeeAdd;
 import models.Employee;
 import models.Performance;
@@ -14,7 +13,7 @@ public class PerformancesEmployeesController {
     private final List<Employee> employeeList = ListFactory.createList();
     private final List<Performance> performanceList;
 
-    private final EmployeesAdd employeesInputFromAddStream;
+    private final EmployeesAddFromInputStream employeesInputFromAddStream;
     private final RandomEmployeeAdd randomEmployeeInput;
 
     // будем кешировать ответы, чтобы не считать при повторном запросе
