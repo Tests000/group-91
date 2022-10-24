@@ -87,6 +87,11 @@ public class ConsoleMainMenu implements MainMenu {
     private void showPerformancesNotTickets(){
         var performancesNotTickets = performancesEmployeesController.getPerformancesNotTickets();
 
+        if (performancesNotTickets.isEmpty()) {
+            System.out.println("Нет спектаклей, на которые не купили блеты");
+            return;
+        }
+
         System.out.println("Спектали, на которые не были куплены билеты");
 
         int i = 1;

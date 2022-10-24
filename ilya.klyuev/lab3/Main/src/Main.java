@@ -40,9 +40,17 @@ public class Main {
 
     private static void startTestMode(){
         ListFactory.selectList(ListChoice.ARRAYLIST);
-        System.out.printf("ArrayList ms: %d\n", TestTime.Test());
+        long executionTimeWithArrayList = TestTime.Test();
+        System.out.printf("ArrayList ms: %d\n", executionTimeWithArrayList);
 
         ListFactory.selectList(ListChoice.LINKEDLIST);
-        System.out.printf("LinkedList ms: %d\n", TestTime.Test());
+        long executionTimeWithLinkedList = TestTime.Test();
+        System.out.printf("LinkedList ms: %d\n", executionTimeWithLinkedList);
+
+        if (executionTimeWithArrayList < executionTimeWithLinkedList) {
+            System.out.println("ArrayList выгоднее использовать для данной задачи");
+        } else {
+            System.out.println("LinkedList выгоднее использовать для данной задачи");
+        }
     }
 }
