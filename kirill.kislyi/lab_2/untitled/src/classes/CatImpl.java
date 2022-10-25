@@ -16,6 +16,7 @@ public abstract class CatImpl implements Cat {
     public CatImpl(String name){
         this.name = name;
         isCastrated = false;
+        isBold = false;
     }
 
     protected String isCastratedToString(){
