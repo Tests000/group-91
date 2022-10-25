@@ -25,7 +25,7 @@ public abstract class CatImpl implements Cat {
     }
 
     protected String isBoldToString(){
-        if (isCastrated) return "Лысый...";
+        if (isBold) return "Лысый...";
         else return "Не лысый!";
     }
 
@@ -38,22 +38,21 @@ public abstract class CatImpl implements Cat {
     public void castrate() {
         showInfo();
         if (isCastrated){
-            System.out.println("Резать уже нечего.");
+            System.out.println("\nРезать уже нечего.");
         }
         else {
-            System.out.println("После этого резать будет нечего.");
+            System.out.println("\nПосле этого резать будет нечего.");
             isCastrated = true;
         }
     }
 
     @Override
-    public void haircut() {
-        showInfo();
+    public void haircut() {;
         if (isBold){
-            System.out.println("Кот и так лысый!.");
+            System.out.println("\nКот и так лысый!\n");
         }
         else {
-            System.out.println("Теперь у вас Фараон!");
+            System.out.println("\nТеперь у вас Фараон!\n");
             isBold= true;
         }
     }
@@ -68,6 +67,11 @@ public abstract class CatImpl implements Cat {
         return Objects.hashCode(name);
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if (!obj.getClass().equals(this.getClass()))
+            return false;
+        return ((HomeCat)obj).name.equalsIgnoreCase(name);
+    }
 
 }
