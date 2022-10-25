@@ -2,7 +2,6 @@ import controllers.PerformancesEmployeesController;
 import factories.ListChoice;
 import factories.ListFactory;
 import input.console.ConsoleEmployeesAddFromInputStream;
-import input.random.RandomEmployeeAdd;
 import menu.MainMenu;
 import menu.StartMenu;
 import menu.StartMenuDialogResult;
@@ -31,7 +30,6 @@ public class Main {
 
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
                 new ConsoleEmployeesAddFromInputStream(LOGGER),
-                new RandomEmployeeAdd(),
                 DEFAULT_PERFORMANCES_COUNT
         );
         MainMenu mainMenu = new ConsoleMainMenu(performancesEmployeesController, LOGGER);

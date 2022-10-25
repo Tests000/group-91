@@ -1,5 +1,4 @@
 import controllers.PerformancesEmployeesController;
-import input.random.RandomEmployeeAdd;
 
 public class TestTime {
     public static long Test(){
@@ -7,7 +6,6 @@ public class TestTime {
 
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
                 null,
-                new RandomEmployeeAdd(),
                 10000
         );
 

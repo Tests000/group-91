@@ -4,17 +4,23 @@ import models.Employee;
 import factories.ListFactory;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomEmployeeAdd{
-    private final ThreadLocalRandom random = ThreadLocalRandom.current();
+    private RandomEmployeeAdd(){
 
-    public List<Employee> inputEmployees(int performancesCount) {
+    }
+
+    private static int generateRandomPerformance(int performanceCount)
+    {
+        return (int)(Math.random() * performanceCount) + 1;
+    }
+
+    public static List<Employee> generateEmployees(int employeesNumber, int performancesCount) {
         List<Employee> employeeList = ListFactory.createList();
 
-        for (int i = 0; i < Employee.MAX_EMPLOYEES_NUMBER; i++){
-            int firstPerformanceIndex = random.nextInt(1, performancesCount + 1);
-            int secondPerformanceIndex = random.nextInt(1, performancesCount + 1);
+        for (int i = 0; i < employeesNumber; i++){
+            int firstPerformanceIndex = generateRandomPerformance(performancesCount);
+            int secondPerformanceIndex = generateRandomPerformance(performancesCount);
             employeeList.add(new Employee(firstPerformanceIndex, secondPerformanceIndex));
         }
 

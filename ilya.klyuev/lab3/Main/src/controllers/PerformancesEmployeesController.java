@@ -5,8 +5,6 @@ import input.random.RandomEmployeeAdd;
 import models.Employee;
 import models.Performance;
 import factories.ListFactory;
-
-import java.util.Iterator;
 import java.util.List;
 
 public class PerformancesEmployeesController {
@@ -14,7 +12,6 @@ public class PerformancesEmployeesController {
     private final List<Performance> performanceList;
 
     private final EmployeesAddFromInputStream employeesInputFromAddStream;
-    private final RandomEmployeeAdd randomEmployeeInput;
 
     // будем кешировать ответы, чтобы не считать при повторном запросе
     private List<Performance> maxPopularPerformances = null;
@@ -22,11 +19,9 @@ public class PerformancesEmployeesController {
 
     public PerformancesEmployeesController
             (EmployeesAddFromInputStream employeesInputFromInputStream,
-             RandomEmployeeAdd randomEmployeeInput,
              int performancesCount){
 
         this.employeesInputFromAddStream = employeesInputFromInputStream;
-        this.randomEmployeeInput = randomEmployeeInput;
 
         performanceList = Performance.getPerformancesByCount(performancesCount);
     }
@@ -42,17 +37,14 @@ public class PerformancesEmployeesController {
         int maxTicketsCount = 0;
 
         // calculate max
-        Iterator<Performance> iterator = performanceList.listIterator();
-        while (iterator.hasNext()){
-            maxTicketsCount = Math.max(maxTicketsCount, iterator.next().getTicketsCount());
+        for (var performance : performanceList){
+            maxTicketsCount = Math.max(maxTicketsCount, performance.getTicketsCount());
         }
 
         maxPopularPerformances = ListFactory.createList();
 
         // select max
-        iterator = performanceList.listIterator();
-        while (iterator.hasNext()){
-            Performance performance = iterator.next();
+        for(var performance : performanceList){
             if (performance.getTicketsCount() == maxTicketsCount)
                 maxPopularPerformances.add(performance);
         }
@@ -80,7 +72,7 @@ public class PerformancesEmployeesController {
     }
 
     public void addEmployeesByRandom(){
-        var newEmployees = randomEmployeeInput.inputEmployees(performanceList.size());
+        var newEmployees =  RandomEmployeeAdd.generateEmployees(Employee.MAX_EMPLOYEES_NUMBER, performanceList.size());
         addEmployees(newEmployees);
     }
 
