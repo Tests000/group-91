@@ -39,7 +39,7 @@ public class ConsoleStartMenu implements StartMenu {
 
     private void showMenu() {
         System.out.println("1: Режим пользователя");
-        System.out.println("2: Протестировать время работы ArrayList и LinkedList");
+        System.out.println("2: Протестировать время работы ArrayList, LinkedList и Vector");
         System.out.println("3: Выход");
     }
 }

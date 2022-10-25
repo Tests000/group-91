@@ -37,18 +37,24 @@ public class Main {
     }
 
     private static void startTestMode(){
-        ListFactory.selectList(ListChoice.ARRAYLIST);
-        long executionTimeWithArrayList = TestTime.Test();
-        System.out.printf("ArrayList ms: %d\n", executionTimeWithArrayList);
-
         ListFactory.selectList(ListChoice.LINKEDLIST);
         long executionTimeWithLinkedList = TestTime.Test();
         System.out.printf("LinkedList ms: %d\n", executionTimeWithLinkedList);
 
-        if (executionTimeWithArrayList < executionTimeWithLinkedList) {
+        ListFactory.selectList(ListChoice.ARRAYLIST);
+        long executionTimeWithArrayList = TestTime.Test();
+        System.out.printf("ArrayList ms: %d\n", executionTimeWithArrayList);
+
+        ListFactory.selectList(ListChoice.VECTOR);
+        long executionTimeWithVector = TestTime.Test();
+        System.out.printf("Vector ms: %d\n", executionTimeWithVector);
+
+        if (executionTimeWithArrayList < executionTimeWithLinkedList && executionTimeWithArrayList < executionTimeWithVector) {
             System.out.println("ArrayList выгоднее использовать для данной задачи");
-        } else {
+        } else if (executionTimeWithLinkedList < executionTimeWithArrayList && executionTimeWithLinkedList < executionTimeWithVector) {
             System.out.println("LinkedList выгоднее использовать для данной задачи");
+        } else{
+            System.out.println("Vector выгоднее использовать для данной задачи");
         }
     }
 }

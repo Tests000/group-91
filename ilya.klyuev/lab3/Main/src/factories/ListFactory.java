@@ -3,6 +3,7 @@ package factories;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 public class ListFactory {
     private ListFactory(){
@@ -13,6 +14,8 @@ public class ListFactory {
     public static <T> List<T> createList(){
         if (selectedList == ListChoice.LINKEDLIST)
             return new LinkedList<>();
+        if (selectedList == ListChoice.VECTOR)
+            return new Vector<>();
         return new ArrayList<>();
     }
 
