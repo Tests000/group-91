@@ -12,7 +12,7 @@ public class RandomEmployeeAdd{
     public List<Employee> inputEmployees(int performancesCount) {
         List<Employee> employeeList = ListFactory.createList();
 
-        for (int i = 0; i < Employee.EMPLOYEES_NUMBER; i++){
+        for (int i = 0; i < Employee.MAX_EMPLOYEES_NUMBER; i++){
             int firstPerformanceIndex = random.nextInt(1, performancesCount + 1);
             int secondPerformanceIndex = random.nextInt(1, performancesCount + 1);
             employeeList.add(new Employee(firstPerformanceIndex, secondPerformanceIndex));

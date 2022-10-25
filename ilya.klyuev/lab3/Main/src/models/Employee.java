@@ -6,7 +6,7 @@ public class Employee {
     private final int firstPerformanceIndex;
     private final int secondPerformanceIndex;
 
-    public static final int EMPLOYEES_NUMBER = 12000;
+    public static final int MAX_EMPLOYEES_NUMBER = 12000;
 
     public Employee(int firstPerformanceIndex, int secondPerformanceIndex){
         this.firstPerformanceIndex = firstPerformanceIndex;

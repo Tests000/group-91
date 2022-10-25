@@ -20,7 +20,7 @@ public class ConsoleEmployeesAddFromInputStream implements EmployeesAddFromInput
         int employeesCount = consoleInput.inputIntInRange(
                 "Введите количество добавляемых работников",
                 1,
-                Employee.EMPLOYEES_NUMBER
+                Employee.MAX_EMPLOYEES_NUMBER
         );
 
         for (int i = 0; i < employeesCount; i++){
