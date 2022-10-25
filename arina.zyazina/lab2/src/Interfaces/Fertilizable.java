@@ -1,5 +1,5 @@
 package Interfaces;
 
-public interface AbleFertilize {
+public interface Fertilizable {
     void fertilize();
 }

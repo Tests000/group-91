@@ -1,10 +1,12 @@
 package Classes;
 
-import Interfaces.AbleFertilize;
+import Interfaces.Fertilizable;
 
-public class DroneBee extends Bee implements AbleFertilize {
+import java.util.Objects;
 
-    public Integer numberOfFertilization;
+public class DroneBee extends Bee implements Fertilizable {
+
+    private Integer numberOfFertilization;
 
     public DroneBee(String name, int age, int numberOfFertilization) {
         super(name, age);
@@ -38,5 +40,10 @@ public class DroneBee extends Bee implements AbleFertilize {
             return super.equals(obj) && numberOfFertilization.equals(droneBee.numberOfFertilization);
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, numberOfFertilization);
     }
 }

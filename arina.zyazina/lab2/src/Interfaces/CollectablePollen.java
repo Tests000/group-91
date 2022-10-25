@@ -1,5 +1,5 @@
 package Interfaces;
 
-public interface AbleCollectPollen {
+public interface CollectablePollen {
     void collectPollen();
 }

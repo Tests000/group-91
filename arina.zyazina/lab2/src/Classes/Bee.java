@@ -3,8 +3,8 @@ package Classes;
 import java.util.Objects;
 
 public abstract class Bee {
-    public String name;
-    public Integer age;
+    protected String name;
+    protected Integer age;
 
     public Bee(String name, int age) {
         this.name = name;

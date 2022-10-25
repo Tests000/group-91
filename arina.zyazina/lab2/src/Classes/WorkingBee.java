@@ -1,10 +1,12 @@
 package Classes;
 
-import Interfaces.AbleCollectPollen;
+import Interfaces.CollectablePollen;
 
-public class WorkingBee extends Bee implements AbleCollectPollen {
+import java.util.Objects;
 
-    public Integer numberOfFlights;
+public class WorkingBee extends Bee implements CollectablePollen {
+
+    private Integer numberOfFlights;
 
     public WorkingBee(String name, int age, int numberOfFlights) {
         super(name, age);
@@ -38,5 +40,10 @@ public class WorkingBee extends Bee implements AbleCollectPollen {
             return super.equals(obj) && numberOfFlights.equals(workingBee.numberOfFlights);
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, numberOfFlights);
     }
 }

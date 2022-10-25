@@ -1,10 +1,12 @@
 package Classes;
 
-import Interfaces.AbleGiveBirth;
+import Interfaces.Birthable;
 
-public class QueenBee extends Bee implements AbleGiveBirth {
+import java.util.Objects;
 
-    public Integer numberOfChildren;
+public class QueenBee extends Bee implements Birthable {
+
+    private Integer numberOfChildren;
 
     public QueenBee(String name, int age, int numberOfChildren) {
         super(name, age);
@@ -38,5 +40,10 @@ public class QueenBee extends Bee implements AbleGiveBirth {
             return super.equals(obj) && numberOfChildren.equals(queenBee.numberOfChildren);
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, numberOfChildren);
     }
 }

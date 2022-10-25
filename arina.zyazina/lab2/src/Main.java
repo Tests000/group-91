@@ -6,21 +6,21 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Bee queenBee = new QueenBee("Алевтина", 57, 450);
-        Bee firstDroneBee = new DroneBee("Иннокентий", 20, 5);
-        Bee secondDroneBee = new DroneBee("Аркадий", 31, 7);
-        Bee firstWorkingBee = new WorkingBee("Евстафий", 42, 32);
-        Bee secondWorkingBee = new WorkingBee("Спиридон", 63, 57);
-        Bee thirdWorkingBee = new WorkingBee("Прасковья", 55, 46);
-        Bee fourthWorkingBee = new WorkingBee("Агриппина", 25, 21);
+        Bee droneBee1 = new DroneBee("Иннокентий", 20, 5);
+        Bee droneBee2 = new DroneBee("Аркадий", 31, 7);
+        Bee workingBee1 = new WorkingBee("Евстафий", 42, 32);
+        Bee workingBee2 = new WorkingBee("Спиридон", 63, 57);
+        Bee workingBee3 = new WorkingBee("Прасковья", 55, 46);
+        Bee workingBee4 = new WorkingBee("Агриппина", 25, 21);
 
         List<Bee> hive = new ArrayList<>();
         hive.add(queenBee);
-        hive.add(firstDroneBee);
-        hive.add(secondDroneBee);
-        hive.add(firstWorkingBee);
-        hive.add(secondWorkingBee);
-        hive.add(thirdWorkingBee);
-        hive.add(fourthWorkingBee);
+        hive.add(droneBee1);
+        hive.add(droneBee2);
+        hive.add(workingBee1);
+        hive.add(workingBee2);
+        hive.add(workingBee3);
+        hive.add(workingBee4);
 
         for (Bee bee: hive) {
             System.out.println(bee.toString());

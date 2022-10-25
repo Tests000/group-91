@@ -1,5 +1,5 @@
 package Interfaces;
 
-public interface AbleGiveBirth {
+public interface Birthable {
     void giveBirth();
 }
