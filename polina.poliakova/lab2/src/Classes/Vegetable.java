@@ -12,6 +12,18 @@ public class Vegetable extends Plant {
         System.out.println("Я овощ, принадлежу огороду и горжусь этим!");
     }
 
+    public int getProlificness() {
+        return prolificness;
+    }
+
+    public void setProlificness(int prolificness) {
+        this.prolificness = prolificness;
+    }
+
+    @Override
+    public final void grow() {
+        System.out.printf("Растение " + name + " выросло на " + prolificness);
+    }
     @Override
     public String toString() {
         return super.toString() + "Vegetable { prolificness = "
@@ -29,18 +41,5 @@ public class Vegetable extends Plant {
         Vegetable vegetable = (Vegetable) obj;
 
         return super.equals(vegetable) && prolificness == vegetable.prolificness;
-    }
-
-    @Override
-    public final void grow() {
-        System.out.printf("Растение " + name + " выросло на " + prolificness);
-    }
-
-    public int getProlificness() {
-        return prolificness;
-    }
-
-    public void setProlificness(int prolificness) {
-        this.prolificness = prolificness;
     }
 }
