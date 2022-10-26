@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Bookstore {
     public static void main(String[] args) {
 
-        Book artisticLiterature = new ArtisticLiterature("Денискины рассказы", "Виктор Юзефович" +
+        Book artisticLiterature = new ArtisticLiterature("Денискины рассказы", "Виктор Юзефович " +
                 "Драгунский", 7, 170, "Литературный цикл", "Первый день, Похититель собак, " +
                 "Рыцари, Слон и радио, " + "Старый мореход");
 
@@ -26,20 +26,19 @@ public class Bookstore {
         Book scientificLiterature = new ScientificLiterature("Познание", "Игорь Петрович Мешков",
                 3, 740, "Ядерная физика", "Начальный");
 
-        ArrayList<String> books = new ArrayList<>();
-        books.add(artisticLiterature.toString());
-        books.add(educationLiterature.toString());
-        books.add(scientificLiterature.toString());
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(artisticLiterature);
+        books.add(educationLiterature);
+        books.add(scientificLiterature);
 
-        for (String book : books) {
+        for (Book book : books) {
             System.out.println(book);
-        }
 
-        if(educationLiterature instanceof EducationLiterature) {
-            ((EducationLiterature) educationLiterature).gettingAdditionalPieces(1);
-        }
-        else {
-            System.out.println("Не является экземляром класса EducationLiterature");
+            if (book instanceof EducationLiterature) {
+                ((EducationLiterature)book).gettingAdditionalPieces(1);
+            } else {
+                System.out.println("Не является экземляром класса EducationLiterature");
+            }
         }
     }
 }
