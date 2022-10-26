@@ -18,9 +18,9 @@ public abstract class GetterList {
         while (answersOnePerson.size() != 3) {
             int player = nextInt();
             if (CheckerData.isCorrectPlayer(player)) {
-                if (answersOnePerson.contains(player)) {
-                    System.out.println("Игрок вами уже был выбран");
-                }
+//                if (answersOnePerson.contains(player)) {
+//                    System.out.println("Игрок вами уже был выбран");
+//                }
                 answersOnePerson.add(player);
             } else {
                 System.out.println("Игрок не найден");

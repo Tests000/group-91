@@ -48,7 +48,7 @@ public class Menu {
             case 1 -> Printer.printResults(handler.getPopularPlayers());
             case 2 -> Printer.printResults(handler.getLoserPlayers());
             case 3 -> Printer.printResults(handler.getSelectedPlayers());
-            case 4 -> System.out.println("Время выполнения 1000 итераций " + handler.getWorkTime());
+            case 4 -> System.out.println("Время выполнения 1000 итераций " + handler.getWorkTime() + " ms");
             default -> System.out.println("Ошибка ввода");
         }
         handlerMenu(answers);
