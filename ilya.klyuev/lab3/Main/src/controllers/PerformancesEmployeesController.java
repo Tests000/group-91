@@ -17,12 +17,9 @@ public class PerformancesEmployeesController {
     private List<Performance> maxPopularPerformances = null;
     private List<Performance> performancesNotTickets = null;
 
-    public PerformancesEmployeesController
-            (EmployeesAddFromInputStream employeesInputFromInputStream,
-             int performancesCount){
+    public PerformancesEmployeesController(EmployeesAddFromInputStream employeesInputFromInputStream, int performancesCount){
 
         this.employeesInputFromAddStream = employeesInputFromInputStream;
-
         performanceList = Performance.getPerformancesByCount(performancesCount);
     }
 
