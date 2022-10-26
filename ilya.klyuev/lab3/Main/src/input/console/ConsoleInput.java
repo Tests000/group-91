@@ -24,7 +24,7 @@ public class ConsoleInput {
                 if (number >= leftBound && number <= rightBound){
                     isCorrectInput = true;
                 } else{
-                    logger.log(Level.WARNING, "InputIntInRange число не входит в заданный диапазон");
+                    logger.info("InputIntInRange число не входит в заданный диапазон");
                 }
 
             } catch (Exception e){
