@@ -38,11 +38,7 @@ public class EducationLiterature extends Book implements AdditionalInformationab
     public void gettingAdditionalPieces(int n) {
         if (n == 1) {
             System.out.println("Продается с диском");
-        }
-        else if (n == 2) {
-            System.out.println("Продается с методичкой");
-        }
-        else {
+        } else {
             System.out.println("Продается без дополнительной литературы");
         }
     }
