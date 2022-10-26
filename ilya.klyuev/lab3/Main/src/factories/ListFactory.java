@@ -12,10 +12,12 @@ public class ListFactory {
     private static ListChoice selectedList = ListChoice.ARRAYLIST;
 
     public static <T> List<T> createList(){
-        if (selectedList == ListChoice.LINKEDLIST)
+        if (selectedList == ListChoice.LINKEDLIST){
             return new LinkedList<>();
-        if (selectedList == ListChoice.VECTOR)
+        }
+        if (selectedList == ListChoice.VECTOR){
             return new Vector<>();
+        }
         return new ArrayList<>();
     }
 

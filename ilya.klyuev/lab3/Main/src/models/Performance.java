@@ -25,8 +25,9 @@ public class Performance {
     }
 
     public static List<Performance> getPerformancesByCount(int performancesCount){
-        if (performancesCount < 0)
+        if (performancesCount < 0) {
             return null;
+        }
 
         List<Performance> performanceList = ListFactory.createList();
 

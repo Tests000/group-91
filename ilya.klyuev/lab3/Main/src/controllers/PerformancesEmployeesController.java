@@ -31,8 +31,9 @@ public class PerformancesEmployeesController {
     }
 
     public List<Performance> getMaxPopularPerformances(){
-        if (maxPopularPerformances != null)
+        if (maxPopularPerformances != null){
             return maxPopularPerformances;
+        }
 
         int maxTicketsCount = 0;
 
@@ -53,14 +54,16 @@ public class PerformancesEmployeesController {
     }
 
     public List<Performance> getPerformancesNotTickets(){
-        if (performancesNotTickets != null)
+        if (performancesNotTickets != null){
             return performancesNotTickets;
+        }
 
         performancesNotTickets = ListFactory.createList();
 
         for (Performance performance : performanceList) {
-            if (performance.getTicketsCount() == 0)
+            if (performance.getTicketsCount() == 0){
                 performancesNotTickets.add(performance);
+            }
         }
 
         return performancesNotTickets;
