@@ -35,8 +35,8 @@ public class EducationLiterature extends Book implements AdditionalInformationab
     }
 
     @Override
-    public void gettingAdditionalPieces(int n) {
-        if (n == 1) {
+    public void gettingAdditionalPieces(Boolean availabilityDisk) {
+        if (availabilityDisk) {
             System.out.println("Продается с диском");
         } else {
             System.out.println("Продается без дополнительной литературы");

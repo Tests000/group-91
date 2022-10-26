@@ -35,9 +35,10 @@ public class Bookstore {
             System.out.println(book);
 
             if (book instanceof EducationLiterature) {
-                ((EducationLiterature)book).gettingAdditionalPieces(1);
+                ((EducationLiterature)book).gettingAdditionalPieces(true);
+                System.out.println();
             } else {
-                System.out.println("Не является экземляром класса EducationLiterature");
+                System.out.println("Не является экземляром класса EducationLiterature\n");
             }
         }
     }

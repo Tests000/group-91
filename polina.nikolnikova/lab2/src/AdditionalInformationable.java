@@ -1,3 +1,3 @@
 public interface AdditionalInformationable {
-    void gettingAdditionalPieces(int n);
+    void gettingAdditionalPieces(Boolean availabilityDisk);
 }
