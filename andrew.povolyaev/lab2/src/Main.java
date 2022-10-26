@@ -47,7 +47,7 @@ public class Main {
             pokemon.attack();
             pokemon.runAway();
             if (pokemon instanceof PokemonWithOwner) {
-                ((PokemonWithOwner) pokemon).makeSuperCombo();
+                ((PokemonWithOwner)pokemon).makeSuperCombo();
             }
         }
     }
