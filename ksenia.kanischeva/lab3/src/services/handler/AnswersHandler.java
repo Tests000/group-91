@@ -51,5 +51,23 @@ public class AnswersHandler {
         return getPlayers();
     }
 
+    private void lifeCircle(){
+        initialPredicateForPopularPlayers();
+        getPopularPlayers();
+        initialPredicateForLoserPlayers();
+        getSelectedPlayers();
+        initialPredicateForSelectedPlayers();
+        getSelectedPlayers();
+    }
+
+    public long getWorkTime() {
+        long start = System.currentTimeMillis();
+
+        for (int i = 1; i <= 1000; i++) {
+            lifeCircle();
+        }
+
+        return  System.currentTimeMillis() - start;
+    }
 
 }

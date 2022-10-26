@@ -8,53 +8,51 @@ public abstract class GetterList {
     protected final static int COUNT_PLAYERS = 22;
     protected final static int COUNT_FUNS = 3000;
 
+    public List<Integer> answers = null;
+
     protected abstract int nextInt();
 
-    protected abstract void fillList(List<Integer> answers);
+    protected abstract void fillList();
 
     private void survey(Set<Integer> answersOnePerson) {
-        int player = nextInt();
-        if (CheckerData.isCorrectPlayer(player)) {
-            if (answersOnePerson.contains(player)) {
-                System.out.println("Игрок вами уже был выбран");
-                survey(answersOnePerson);
+        while (answersOnePerson.size() != 3) {
+            int player = nextInt();
+            if (CheckerData.isCorrectPlayer(player)) {
+                if (answersOnePerson.contains(player)) {
+                    System.out.println("Игрок вами уже был выбран");
+                }
+                answersOnePerson.add(player);
+            } else {
+                System.out.println("Игрок не найден");
             }
-            answersOnePerson.add(player);
-        } else {
-            System.out.println("Игрок не найден");
-            survey(answersOnePerson);
         }
     }
 
-    private void saveAnswers(Set<Integer> answersOnePerson, List<Integer> answers) {
+    private void saveAnswers(Set<Integer> answersOnePerson) {
         for (Integer answer : answersOnePerson) {
             answers.set(answer - 1, answers.get(answer - 1) + 1);
         }
     }
 
 
-    protected void saveAnswers(List<Integer> answers) {
+    protected void saveAnswers() {
         Set<Integer> answersOnePerson = new HashSet<>();
 
         for (int i = 0; i < COUNT_FUNS; i++) {
-            while (answersOnePerson.size() != 3) {
-                survey(answersOnePerson);
-            }
-            saveAnswers(answersOnePerson, answers);
+            survey(answersOnePerson);
+            saveAnswers(answersOnePerson);
             answersOnePerson.clear();
         }
     }
 
-    public List<Integer> createArrayList() {
-        List<Integer> answers = new ArrayList<>(Collections.nCopies(COUNT_PLAYERS, 0));
-        fillList(answers);
-        return answers;
+    public void createArrayList() {
+        answers = new ArrayList<>(Collections.nCopies(COUNT_PLAYERS, 0));
+        fillList();
     }
 
 
-    public List<Integer> createLinkedList() {
-        List<Integer> answers = new LinkedList<>(Collections.nCopies(COUNT_PLAYERS, 0));
-        fillList(answers);
-        return answers;
+    public void createLinkedList() {
+        answers = new LinkedList<>(Collections.nCopies(COUNT_PLAYERS, 0));
+        fillList();
     }
 }

@@ -32,6 +32,7 @@ public class Menu {
                 1. Номер самого популярного игрока(-ов)
                 2. Номер игрока(-ов), не получившего ни одного голоса
                 3. Список игроков, за которых голосовали
+                4. Время работы
                 0. Выход""");
     }
 
@@ -42,56 +43,54 @@ public class Menu {
 
         switch (item) {
             case 0 -> {
-                System.out.println("Finishing...");
+                System.out.println("Завершение...");
                 return;
             }
             case 1 -> Printer.printResults(handler.getPopularPlayers());
             case 2 -> Printer.printResults(handler.getLoserPlayers());
             case 3 -> Printer.printResults(handler.getSelectedPlayers());
+            case 4 -> System.out.println("Время выполнения 1000 итераций " + handler.getWorkTime());
             default -> System.out.println("Ошибка ввода");
         }
         handlerMenu(answers);
     }
 
     private static void implMenu(GetterList getterList) {
-        List<Integer> answers = null;
-
         printImplMenu();
         int item = ReaderInteger.nextInt();
 
         switch (item) {
             case 0 -> {
-                System.out.println("Finishing...");
+                System.out.println("Завершение...");
                 return;
             }
-            case 1 -> answers = getterList.createArrayList();
-            case 2 -> answers = getterList.createLinkedList();
+            case 1 -> getterList.createArrayList();
+            case 2 -> getterList.createLinkedList();
             default -> {
                 System.out.println("Ошибка ввода");
                 implMenu(getterList);
             }
         }
 
-        if (answers != null) {
+        if (getterList.answers != null) {
             System.out.println("Распределение голосов");
-            Printer.printResults(answers);
+            Printer.printResults(getterList.answers);
         }
 
-        handlerMenu(answers);
+        handlerMenu(getterList.answers);
     }
 
     public static void mainMenu() {
         GetterList getterList = null;
-
         printMainMenu();
         int item = ReaderInteger.nextInt();
 
         switch (item) {
 
-            case 1 -> getterList = new ReaderList(Logger.getGlobal());
+            case 1 -> getterList = new ReaderList();
             case 2 -> getterList = new GeneratorList();
             case 0 -> {
-                System.out.println("Finishing...");
+                System.out.println("Завершение...");
                 return;
             }
             default -> {
