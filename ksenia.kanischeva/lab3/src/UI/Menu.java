@@ -7,7 +7,6 @@ import repository.getters.ReaderList;
 import services.handler.AnswersHandler;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Menu {
 
