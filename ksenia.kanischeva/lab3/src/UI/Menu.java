@@ -71,12 +71,12 @@ public class Menu {
             }
         }
 
-        if (getterList.answers != null) {
+        if (getterList.getAnswers() != null) {
             System.out.println("Распределение голосов");
-            Printer.printResults(getterList.answers);
+            Printer.printResults(getterList.getAnswers());
         }
 
-        handlerMenu(getterList.answers);
+        handlerMenu(getterList.getAnswers());
     }
 
     public static void mainMenu() {

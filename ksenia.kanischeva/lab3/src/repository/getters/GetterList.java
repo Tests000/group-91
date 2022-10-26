@@ -8,7 +8,7 @@ public abstract class GetterList {
     protected final static int COUNT_PLAYERS = 22;
     protected final static int COUNT_FUNS = 3000;
 
-    public List<Integer> answers = null;
+    private List<Integer> answers = null;
 
     protected abstract int nextInt();
 
@@ -18,9 +18,9 @@ public abstract class GetterList {
         while (answersOnePerson.size() != 3) {
             int player = nextInt();
             if (CheckerData.isCorrectPlayer(player)) {
-//                if (answersOnePerson.contains(player)) {
-//                    System.out.println("Игрок вами уже был выбран");
-//                }
+                if (answersOnePerson.contains(player)) {
+                    System.out.println("Игрок вами уже был выбран");
+                }
                 answersOnePerson.add(player);
             } else {
                 System.out.println("Игрок не найден");
@@ -54,5 +54,9 @@ public abstract class GetterList {
     public void createLinkedList() {
         answers = new LinkedList<>(Collections.nCopies(COUNT_PLAYERS, 0));
         fillList();
+    }
+
+    public List<Integer> getAnswers() {
+        return answers;
     }
 }
