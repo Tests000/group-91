@@ -1,9 +1,5 @@
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Collection;
-import java.util.Scanner;
+import java.util.*;
 
 public final class Main {
     private static final int CANDIDATE_COUNT = 12;
@@ -12,18 +8,12 @@ public final class Main {
 
     public static void main(String[] args) {
 
-        Collection<Integer> rawVotes = votesGeneratorOutput();
-
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int vote : rawVotes) {
-            stringBuilder.append(vote).append(" ");
+        Collection<Integer> rawVotes;
+        try {
+            rawVotes = votesGeneratorOutput();
+        } catch (IOException e) {
+            return;
         }
-
-        try (InputStream inputStream = new ByteArrayInputStream(stringBuilder.toString().getBytes(StandardCharsets.UTF_8))) {
-            System.setIn(inputStream);
-        } catch (IOException ignored) {}
-
-        rawVotes.clear();
 
         try (Scanner scanner = new Scanner(System.in)) {
             while (scanner.hasNextInt()) {
@@ -34,9 +24,10 @@ public final class Main {
         electionOutput(rawVotes);
     }
 
-    private static Collection<Integer> votesGeneratorOutput() {
+    private static Collection<Integer> votesGeneratorOutput() throws IOException {
 
         VotesGenerator votesGenerator = new VotesGenerator(VOTER_COUNT, CANDIDATE_COUNT);
+        votesGenerator.generateToInputStream();
 
         System.out.printf("Сколько миллисекунд займет генерация голосов каждым методом %s раз?%n", PerformanceTest.BENCHMARK_SIZE);
 
@@ -55,18 +46,18 @@ public final class Main {
         return arrayListPerformance < linkedListPerformance ?
                 arrayListPerformance < priorityQueuePerformance ?
                         arrayListPerformance < arrayDequePerformance ?
-                                votesGenerator.generateWithArrayList() :
-                                votesGenerator.generateWithArrayDeque() :
+                                new ArrayList<>() :
+                                new ArrayDeque<>() :
                         priorityQueuePerformance < arrayDequePerformance ?
-                                votesGenerator.generateWithPriorityQueue() :
-                                votesGenerator.generateWithArrayDeque() :
+                                new PriorityQueue<>() :
+                                new ArrayDeque<>() :
                 linkedListPerformance < priorityQueuePerformance ?
                         linkedListPerformance < arrayDequePerformance ?
-                                votesGenerator.generateWithLinkedList() :
-                                votesGenerator.generateWithArrayDeque() :
+                                new LinkedList<>() :
+                                new ArrayDeque<>() :
                         priorityQueuePerformance < arrayDequePerformance ?
-                                votesGenerator.generateWithPriorityQueue() :
-                                votesGenerator.generateWithArrayDeque();
+                                new PriorityQueue<>() :
+                                new ArrayDeque<>();
     }
 
     private static void electionOutput(Collection<Integer> rawVotes) {

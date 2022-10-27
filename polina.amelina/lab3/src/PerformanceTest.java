@@ -25,7 +25,7 @@ public final class PerformanceTest {
     public static long testVotesGeneratorArrayList(VotesGenerator votesGenerator) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < BENCHMARK_SIZE; i++) {
-            votesGenerator.generateWithArrayList();
+            votesGenerator.generateToArrayList();
         }
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
@@ -34,7 +34,7 @@ public final class PerformanceTest {
     public static long testVotesGeneratorLinkedList(VotesGenerator votesGenerator) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < BENCHMARK_SIZE; i++) {
-            votesGenerator.generateWithLinkedList();
+            votesGenerator.generateToLinkedList();
         }
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
@@ -43,7 +43,7 @@ public final class PerformanceTest {
     public static long testVotesGeneratorPriorityQueue(VotesGenerator votesGenerator) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < BENCHMARK_SIZE; i++) {
-            votesGenerator.generateWithPriorityQueue();
+            votesGenerator.generateToPriorityQueue();
         }
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
@@ -52,7 +52,7 @@ public final class PerformanceTest {
     public static long testVotesGeneratorArrayDeque(VotesGenerator votesGenerator) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < BENCHMARK_SIZE; i++) {
-            votesGenerator.generateWithArrayDeque();
+            votesGenerator.generateToArrayDeque();
         }
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
