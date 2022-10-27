@@ -30,12 +30,7 @@ public final class Main {
             }
         }
 
-        System.out.printf("--------%nГолоса:%n");
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int vote : rawVotes) {
-            stringBuilder.append(vote).append(" ");
-        }
-        System.out.println(stringBuilder);
+        System.out.printf("--------%nГолоса:%n%s%n", rawVotes);
 
         Election election = new Election(rawVotes, CANDIDATE_COUNT, MIN_VOTER_PERCENT);
         int candidate = election.countVotes(ElectionPerformanceTest.chooseCollection(election));
