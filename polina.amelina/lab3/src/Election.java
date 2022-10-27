@@ -19,10 +19,6 @@ public final class Election {
         return countVotes(new LinkedList<>());
     }
 
-    public int countVotesWithVector() {
-        return countVotes(new Vector<>());
-    }
-
     private int countVotes(List<Integer> countedVotes) {
 
         for (int i = 0; i < candidateCount; i++) {
