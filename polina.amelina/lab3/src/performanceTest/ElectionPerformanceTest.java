@@ -12,17 +12,19 @@ public final class ElectionPerformanceTest extends AbstractPerformanceTest {
 
     public static List<Integer> chooseCollection(Election election) {
 
-        System.out.printf("Сколько миллисекунд займет нахождение кандидата каждым методом %s раз?%n", BENCHMARK_SIZE);
+        System.out.printf("--------%n%s: тестируем каждую коллекцию %s раз%n", Election.class, BENCHMARK_SIZE);
 
         long arrayListPerformance = testArrayList(election);
-        System.out.printf("Array List: %s ms%n", arrayListPerformance);
+        System.out.printf("%s: %s ms%n", ArrayList.class, arrayListPerformance);
 
         long linkedListPerformance = testLinkedList(election);
-        System.out.printf("Linked List: %s ms%n", linkedListPerformance);
+        System.out.printf("%s: %s ms%n", LinkedList.class, linkedListPerformance);
 
-        return arrayListPerformance < linkedListPerformance ?
+        List<Integer> list = arrayListPerformance < linkedListPerformance ?
                 new ArrayList<>() :
                 new LinkedList<>();
+        System.out.printf("Выбираем %s%n", list.getClass());
+        return list;
     }
 
     private static long testArrayList(Election election) {

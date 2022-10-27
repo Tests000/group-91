@@ -40,7 +40,7 @@ public final class VotesGenerator {
         try (InputStream inputStream = new ByteArrayInputStream(stringBuilder.toString().getBytes(StandardCharsets.UTF_8))) {
             System.setIn(inputStream);
         } catch (IOException e) {
-            Logger.getGlobal().log(Level.WARNING, "ошибка при записи случайных чисел в поток ввода", e);
+            Logger.getGlobal().log(Level.SEVERE, "ошибка при записи случайных чисел в поток ввода", e);
             throw e;
         }
     }

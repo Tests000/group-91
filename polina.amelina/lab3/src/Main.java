@@ -30,11 +30,18 @@ public final class Main {
             }
         }
 
+        System.out.printf("--------%nГолоса:%n");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int vote : rawVotes) {
+            stringBuilder.append(vote).append(" ");
+        }
+        System.out.println(stringBuilder);
+
         Election election = new Election(rawVotes, CANDIDATE_COUNT, MIN_VOTER_PERCENT);
         int candidate = election.countVotes(ElectionPerformanceTest.chooseCollection(election));
 
         System.out.printf(candidate == 0 ?
-                "Не удалось выбрать представителя%n" :
-                "Выбрали представителя %s%n", candidate);
+                "--------%nНе удалось выбрать представителя%n" :
+                "--------%nВыбрали представителя %s%n", candidate);
     }
 }

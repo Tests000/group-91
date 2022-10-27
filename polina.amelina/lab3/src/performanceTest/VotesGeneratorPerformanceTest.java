@@ -10,21 +10,21 @@ public final class VotesGeneratorPerformanceTest extends AbstractPerformanceTest
 
     public static Collection<Integer> chooseCollection(VotesGenerator votesGenerator) {
 
-        System.out.printf("Сколько миллисекунд займет генерация голосов каждым методом %s раз?%n", BENCHMARK_SIZE);
+        System.out.printf("--------%n%s: тестируем каждую коллекцию %s раз%n", VotesGenerator.class, BENCHMARK_SIZE);
 
         long arrayListPerformance = testArrayList(votesGenerator);
-        System.out.printf("Array List: %s ms%n", arrayListPerformance);
+        System.out.printf("%s: %s ms%n", ArrayList.class, arrayListPerformance);
 
         long linkedListPerformance = testLinkedList(votesGenerator);
-        System.out.printf("Linked List: %s ms%n", linkedListPerformance);
+        System.out.printf("%s: %s ms%n", LinkedList.class, linkedListPerformance);
 
         long priorityQueuePerformance = testPriorityQueue(votesGenerator);
-        System.out.printf("Priority Queue: %s ms%n", priorityQueuePerformance);
+        System.out.printf("%s: %s ms%n", PriorityQueue.class, priorityQueuePerformance);
 
         long arrayDequePerformance = testArrayDeque(votesGenerator);
-        System.out.printf("Array Deque: %s ms%n", arrayDequePerformance);
+        System.out.printf("%s: %s ms%n", ArrayDeque.class, arrayDequePerformance);
 
-        return arrayListPerformance < linkedListPerformance ?
+        Collection<Integer> collection = arrayListPerformance < linkedListPerformance ?
                 arrayListPerformance < priorityQueuePerformance ?
                         arrayListPerformance < arrayDequePerformance ?
                                 new ArrayList<>() :
@@ -39,6 +39,8 @@ public final class VotesGeneratorPerformanceTest extends AbstractPerformanceTest
                         priorityQueuePerformance < arrayDequePerformance ?
                                 new PriorityQueue<>() :
                                 new ArrayDeque<>();
+        System.out.printf("Выбираем %s%n", collection.getClass());
+        return collection;
     }
 
     private static long testArrayList(VotesGenerator votesGenerator) {
