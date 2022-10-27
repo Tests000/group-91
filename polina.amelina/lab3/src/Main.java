@@ -1,24 +1,36 @@
 import java.util.*;
 
-public class Main {
+public final class Main {
     public static void main(String[] args) {
 
+        int candidateCount = 12;
+        int minVoterPercent = 10;
+        int voterCount = 300;
+
         Collection<Integer> rawVotes = new ArrayList<>();
+        Random random = new Random();
 
-        rawVotes.add(1);
-        rawVotes.add(2);
-        rawVotes.add(3);
-        rawVotes.add(4);
-        rawVotes.add(5);
-        rawVotes.add(6);
-        rawVotes.add(7);
-        rawVotes.add(8);
-        rawVotes.add(8);
-        rawVotes.add(9);
-        rawVotes.add(10);
+        for (int i = 0; i < voterCount; i++) {
+            rawVotes.add(random.nextInt(1, candidateCount + 1));
+        }
 
-        Election election = new Election(rawVotes, 10, 20);
+        Election election = new Election(rawVotes, candidateCount, minVoterPercent);
 
-        System.out.print(election.countVotesWithArrayList());
+        long arrayListPerformance = PerformanceTest.testArrayList(election);
+        System.out.printf("Array List: %s ms%n", arrayListPerformance);
+
+        long linkedListPerformance = PerformanceTest.testLinkedList(election);
+        System.out.printf("Linked List: %s ms%n", linkedListPerformance);
+
+        long vectorPerformance = PerformanceTest.testVector(election);
+        System.out.printf("Vector: %s ms%n", vectorPerformance);
+
+        System.out.printf("%s%n", arrayListPerformance > linkedListPerformance ?
+                arrayListPerformance > vectorPerformance ?
+                        election.countVotesWithArrayList() :
+                        election.countVotesWithVector() :
+                linkedListPerformance > vectorPerformance ?
+                        election.countVotesWithArrayList() :
+                        election.countVotesWithVector());
     }
 }
