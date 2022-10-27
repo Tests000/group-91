@@ -1,4 +1,9 @@
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
+import java.util.Scanner;
 
 public final class Main {
     private static final int CANDIDATE_COUNT = 12;
@@ -6,7 +11,26 @@ public final class Main {
     private static final int VOTER_COUNT = 300;
 
     public static void main(String[] args) {
+
         Collection<Integer> rawVotes = votesGeneratorOutput();
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int vote : rawVotes) {
+            stringBuilder.append(vote).append(" ");
+        }
+
+        try (InputStream inputStream = new ByteArrayInputStream(stringBuilder.toString().getBytes(StandardCharsets.UTF_8))) {
+            System.setIn(inputStream);
+        } catch (IOException ignored) {}
+
+        rawVotes.clear();
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (scanner.hasNextInt()) {
+                rawVotes.add(scanner.nextInt());
+            }
+        }
+
         electionOutput(rawVotes);
     }
 
