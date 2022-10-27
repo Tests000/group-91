@@ -1,6 +1,10 @@
-import java.util.*;
+package simulation;
+
+import java.util.Collection;
+import java.util.List;
 
 public final class Election {
+
     private final Collection<Integer> rawVotes;
     private final int candidateCount;
     private final int minVoterPercent;
@@ -11,15 +15,7 @@ public final class Election {
         this.minVoterPercent = minVoterPercent;
     }
 
-    public int countVotesWithArrayList() {
-        return countVotes(new ArrayList<>());
-    }
-
-    public int countVotesWithLinkedList() {
-        return countVotes(new LinkedList<>());
-    }
-
-    private int countVotes(List<Integer> countedVotes) {
+    public int countVotes(List<Integer> countedVotes) {
 
         for (int i = 0; i < candidateCount; i++) {
             countedVotes.add(0);

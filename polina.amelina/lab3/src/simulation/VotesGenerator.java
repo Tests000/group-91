@@ -1,8 +1,11 @@
+package simulation;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.Collection;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,23 +19,7 @@ public final class VotesGenerator {
         this.candidateCount = candidateCount;
     }
 
-    public void generateToPriorityQueue() {
-        generateToCollection(new PriorityQueue<>());
-    }
-
-    public void generateToArrayDeque() {
-        generateToCollection(new ArrayDeque<>());
-    }
-
-    public void generateToArrayList() {
-        generateToCollection(new ArrayList<>());
-    }
-
-    public void generateToLinkedList() {
-        generateToCollection(new LinkedList<>());
-    }
-
-    private void generateToCollection(Collection<Integer> rawVotes) {
+    public void generateToCollection(Collection<Integer> rawVotes) {
 
         Random random = new Random();
 
