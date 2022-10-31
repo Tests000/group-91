@@ -1,3 +1,4 @@
 public interface AdditionalInformationable {
-    void gettingAdditionalPieces(Boolean availabilityDisk);
+    void hasDisk();
+    String flightMaterial(int n);
 }

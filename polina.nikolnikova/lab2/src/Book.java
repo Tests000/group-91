@@ -3,20 +3,26 @@ import java.util.Objects;
 public abstract class Book {
 
     protected String titleOfTheBook;
-    protected String autor;
+    protected String author;
     protected int availability;
     protected int price;
+    protected TypeOfBook type;
 
-    Book(String titleOfTheBook, String autor, int availability, int price) {
+    Book(String titleOfTheBook, String author, int availability, int price) {
         this.titleOfTheBook = titleOfTheBook;
-        this.autor = autor;
+        this.author = author;
         this.availability = availability;
         this.price = price;
     }
 
+    protected String getType() {
+        type = TypeOfBook.TYPE;
+        return "";
+    }
+
     @Override
     public String toString() {
-        return "Название книги: " + titleOfTheBook + "\nАвтор: " + autor + "\nЦена: " + price + " руб" +
+        return "Название книги: " + titleOfTheBook + "\nАвтор: " + author + "\nЦена: " + price + " руб" +
                 "\nВ наличии " + availability + " шт";
     }
 
@@ -26,12 +32,12 @@ public abstract class Book {
             return false;
         }
 
-        return this.titleOfTheBook.equals(book.titleOfTheBook) && this.autor.equals(book.autor) &&
+        return this.titleOfTheBook.equals(book.titleOfTheBook) && this.author.equals(book.author) &&
                 book.price == this.price && book.availability == this.availability;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(titleOfTheBook, autor, price, availability);
+        return Objects.hash(titleOfTheBook, author, price, availability);
     }
 }
