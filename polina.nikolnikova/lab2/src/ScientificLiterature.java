@@ -10,7 +10,6 @@ public class ScientificLiterature extends Book {
         super(titleOfTheBook, author, availability, price);
         this.scopeOfStudy = scopeOfStudy;
         this.difficultyLevel = difficultyLevel;
-        getType();
     }
 
     @Override

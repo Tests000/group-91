@@ -8,7 +8,6 @@ public class ArtisticLiterature extends Book {
         super(titleOfTheBook, author, availability, price);
         this.genre = genre;
         this.content = content;
-        getType();
     }
 
     @Override

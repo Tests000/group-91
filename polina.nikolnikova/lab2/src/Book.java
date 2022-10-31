@@ -22,7 +22,7 @@ public abstract class Book {
 
     @Override
     public String toString() {
-        return "Название книги: " + titleOfTheBook + "\nАвтор: " + author + "\nЦена: " + price + " руб" +
+        return getType() + "Название книги: " + titleOfTheBook + "\nАвтор: " + author + "\nЦена: " + price + " руб" +
                 "\nВ наличии " + availability + " шт";
     }
 

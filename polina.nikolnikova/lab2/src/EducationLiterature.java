@@ -12,7 +12,6 @@ public class EducationLiterature extends Book implements AdditionalInformationab
         this.objectOfStudy = objectOfStudy;
         this.studyClass = studyClass;
         this.availabilityDisk = (int)(Math.random() * 1) + 1;
-        getType();
     }
 
     @Override
