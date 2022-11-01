@@ -30,8 +30,8 @@ public class ConsoleMainMenu implements MainMenu {
             menuItem = consoleInput.inputIntInRange("Выберите пункт", MIN_MENU_ITEM, END_MENU_ITEM);
 
             switch (menuItem){
-                case 1 -> performancesEmployeesController.addEmployeesFromInputStream();
-                case 2 -> performancesEmployeesController.addEmployeesByRandom();
+                case 1 -> performancesEmployeesController.addEmployeesTicketsFromInputStream();
+                case 2 -> performancesEmployeesController.addEmployeesTicketsByRandom();
                 case 3 -> showPerformances();
                 case 4 -> showMaxPopularPerformances();
                 case 5 -> showPerformancesNotTickets();

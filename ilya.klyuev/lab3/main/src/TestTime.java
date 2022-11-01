@@ -9,7 +9,7 @@ public class TestTime {
         );
 
         for (int i = 0; i < randomGenerationsCount; i++){
-            performancesEmployeesController.addEmployeesByRandom();
+            performancesEmployeesController.addEmployeesTicketsByRandom();
         }
 
         performancesEmployeesController.getMaxPopularPerformances();

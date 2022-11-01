@@ -62,12 +62,12 @@ public class PerformancesEmployeesController {
         return performancesNotTickets;
     }
 
-    public void addEmployeesFromInputStream(){
+    public void addEmployeesTicketsFromInputStream(){
         var newEmployees = employeesInputFromAddStream.inputEmployees(MAX_EMPLOYEES_NUMBER);
         updatePerformances(newEmployees);
     }
 
-    public void addEmployeesByRandom(){
+    public void addEmployeesTicketsByRandom(){
         var newEmployees =  RandomEmployeeGenerator.generateEmployees(MAX_EMPLOYEES_NUMBER);
         updatePerformances(newEmployees);
     }
