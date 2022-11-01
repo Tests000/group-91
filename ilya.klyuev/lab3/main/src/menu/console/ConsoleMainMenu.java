@@ -29,22 +29,13 @@ public class ConsoleMainMenu implements MainMenu {
             showMenu();
             menuItem = consoleInput.inputIntInRange("Выберите пункт", MIN_MENU_ITEM, END_MENU_ITEM);
 
-            if (menuItem == 1){
-                performancesEmployeesController.addEmployeesFromInputStream();
+            switch (menuItem){
+                case 1 -> performancesEmployeesController.addEmployeesFromInputStream();
+                case 2 -> performancesEmployeesController.addEmployeesByRandom();
+                case 3 -> showPerformances();
+                case 4 -> showMaxPopularPerformances();
+                case 5 -> showPerformancesNotTickets();
             }
-            if (menuItem == 2){
-                performancesEmployeesController.addEmployeesByRandom();
-            }
-            if (menuItem == 3){
-                showPerformances();
-            }
-            if (menuItem == 4){
-                showMaxPopularPerformances();
-            }
-            if (menuItem == 5) {
-                showPerformancesNotTickets();
-            }
-
             waitUser();
         }
     }
@@ -57,30 +48,17 @@ public class ConsoleMainMenu implements MainMenu {
         System.out.println("5: Показать спектали, на которые никто не купил билет");
         System.out.println("6: Выход");
     }
-
-    private void showPerformance(Performance performance, int index){
-        System.out.printf("%d: Название: %s, Количество билетов: %d\n", index, performance.getName(), performance.getTicketsCount());
-    }
-
     private void showPerformances(){
-        var performanceList = performancesEmployeesController.getPerformanceList();
-
         System.out.println("Спектакли:");
-
-        int i = 1;
-        for (var performance : performanceList){
-            showPerformance(performance, i++);
+        for (var performance : Performance.values()){
+            System.out.println(performance);
         }
     }
 
     private void showMaxPopularPerformances(){
-        var maxPopularPerformances = performancesEmployeesController.getMaxPopularPerformances();
-
         System.out.println("Самые популярые спектакли:");
-
-        int i = 1;
-        for (var performance : maxPopularPerformances){
-            showPerformance(performance, i++);
+        for (var performance : performancesEmployeesController.getMaxPopularPerformances()){
+            System.out.println(performance);
         }
     }
 
@@ -93,10 +71,8 @@ public class ConsoleMainMenu implements MainMenu {
         }
 
         System.out.println("Спектали, на которые не были куплены билеты");
-
-        int i = 1;
         for (var performance : performancesNotTickets){
-            showPerformance(performance, i++);
+            System.out.println(performance);
         }
     }
 

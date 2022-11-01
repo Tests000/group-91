@@ -4,5 +4,5 @@ import models.Employee;
 import java.util.List;
 
 public interface EmployeesAddFromInputStream{
-    List<Employee> inputEmployees(int performancesCount);
+    List<Employee> inputEmployees(int maxEmployeesNumber);
 }

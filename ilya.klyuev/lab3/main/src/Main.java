@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 
 public class Main {
     private static final Logger LOGGER = Logger.getGlobal();
-    private static final int DEFAULT_PERFORMANCES_COUNT = 8;
 
+    private static final int RANDOM_GENERATIONS_COUNT = 200;
     public static void main(String[] args) {
 
         StartMenu startMenu = new ConsoleStartMenu(LOGGER);
@@ -29,8 +29,7 @@ public class Main {
         ListFactory.selectList(ListChoice.ARRAYLIST);
 
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
-                new ConsoleEmployeesAddFromInputStream(LOGGER),
-                DEFAULT_PERFORMANCES_COUNT
+                new ConsoleEmployeesAddFromInputStream(LOGGER)
         );
         MainMenu mainMenu = new ConsoleMainMenu(performancesEmployeesController, LOGGER);
         mainMenu.show();
@@ -38,23 +37,17 @@ public class Main {
 
     private static void startTestMode(){
         ListFactory.selectList(ListChoice.LINKEDLIST);
-        long executionTimeWithLinkedList = TestTime.Test();
+        long executionTimeWithLinkedList = TestTime.test(RANDOM_GENERATIONS_COUNT);
         System.out.printf("LinkedList ms: %d\n", executionTimeWithLinkedList);
 
         ListFactory.selectList(ListChoice.ARRAYLIST);
-        long executionTimeWithArrayList = TestTime.Test();
+        long executionTimeWithArrayList = TestTime.test(RANDOM_GENERATIONS_COUNT);
         System.out.printf("ArrayList ms: %d\n", executionTimeWithArrayList);
 
-        ListFactory.selectList(ListChoice.VECTOR);
-        long executionTimeWithVector = TestTime.Test();
-        System.out.printf("Vector ms: %d\n", executionTimeWithVector);
-
-        if (executionTimeWithArrayList < executionTimeWithLinkedList && executionTimeWithArrayList < executionTimeWithVector) {
+        if (executionTimeWithArrayList < executionTimeWithLinkedList) {
             System.out.println("ArrayList выгоднее использовать для данной задачи");
-        } else if (executionTimeWithLinkedList < executionTimeWithArrayList && executionTimeWithLinkedList < executionTimeWithVector) {
+        } else {
             System.out.println("LinkedList выгоднее использовать для данной задачи");
-        } else{
-            System.out.println("Vector выгоднее использовать для данной задачи");
         }
     }
 }

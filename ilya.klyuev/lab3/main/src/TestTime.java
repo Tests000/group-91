@@ -1,16 +1,16 @@
 import controllers.PerformancesEmployeesController;
 
 public class TestTime {
-    public static long Test(){
+    public static long test(int randomGenerationsCount){
         long startTime = System.currentTimeMillis();
 
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
-                null,
-                10000
+                null
         );
 
-        performancesEmployeesController.addEmployeesByRandom();
-        performancesEmployeesController.addEmployeesByRandom();
+        for (int i = 0; i < randomGenerationsCount; i++){
+            performancesEmployeesController.addEmployeesByRandom();
+        }
 
         performancesEmployeesController.getMaxPopularPerformances();
         performancesEmployeesController.getPerformancesNotTickets();

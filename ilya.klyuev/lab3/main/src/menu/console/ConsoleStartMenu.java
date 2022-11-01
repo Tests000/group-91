@@ -19,27 +19,25 @@ public class ConsoleStartMenu implements StartMenu {
 
     @Override
     public StartMenuDialogResult showDialog() {
-        int menuItem = 0;
+        int menuItem;
         ConsoleInput consoleInput = new ConsoleInput(logger);
 
-        while (menuItem != END_MENU_ITEM){
-            showMenu();
-            menuItem = consoleInput.inputIntInRange("Выберите пункт", START_MENU_ITEM, END_MENU_ITEM);
+        showMenu();
+        menuItem = consoleInput.inputIntInRange("Выберите пункт", START_MENU_ITEM, END_MENU_ITEM);
 
-            if (menuItem == 1){
-                return StartMenuDialogResult.USERMODE;
-            }
-            if (menuItem == 2){
-                return StartMenuDialogResult.TESTMODE;
-            }
-        }
-
-        return StartMenuDialogResult.EXIT;
+        return switch (menuItem){
+            case 1:
+                yield StartMenuDialogResult.USERMODE;
+            case 2:
+                yield StartMenuDialogResult.TESTMODE;
+            default:
+                yield StartMenuDialogResult.EXIT;
+        };
     }
 
     private void showMenu() {
         System.out.println("1: Режим пользователя");
-        System.out.println("2: Протестировать время работы ArrayList, LinkedList и Vector");
+        System.out.println("2: Протестировать время работы ArrayList и LinkedList");
         System.out.println("3: Выход");
     }
 }
