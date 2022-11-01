@@ -7,6 +7,8 @@ import menu.StartMenu;
 import menu.StartMenuDialogResult;
 import menu.console.ConsoleMainMenu;
 import menu.console.ConsoleStartMenu;
+import storages.EmployeeStorage;
+
 import java.util.logging.Logger;
 
 public class Main {
@@ -29,19 +31,22 @@ public class Main {
         ListFactory.selectList(ListChoice.ARRAYLIST);
 
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
-                new ConsoleEmployeesAddFromInputStream(LOGGER)
+                new ConsoleEmployeesAddFromInputStream(LOGGER),
+                new EmployeeStorage(LOGGER)
         );
         MainMenu mainMenu = new ConsoleMainMenu(performancesEmployeesController, LOGGER);
         mainMenu.show();
     }
 
     private static void startTestMode(){
+        TestTime testTime = new TestTime(LOGGER);
+
         ListFactory.selectList(ListChoice.LINKEDLIST);
-        long executionTimeWithLinkedList = TestTime.test(RANDOM_GENERATIONS_COUNT);
+        long executionTimeWithLinkedList = testTime.test(RANDOM_GENERATIONS_COUNT);
         System.out.printf("LinkedList ms: %d\n", executionTimeWithLinkedList);
 
         ListFactory.selectList(ListChoice.ARRAYLIST);
-        long executionTimeWithArrayList = TestTime.test(RANDOM_GENERATIONS_COUNT);
+        long executionTimeWithArrayList = testTime.test(RANDOM_GENERATIONS_COUNT);
         System.out.printf("ArrayList ms: %d\n", executionTimeWithArrayList);
 
         if (executionTimeWithArrayList < executionTimeWithLinkedList) {

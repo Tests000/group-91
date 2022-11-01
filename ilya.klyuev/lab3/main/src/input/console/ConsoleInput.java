@@ -11,6 +11,11 @@ public class ConsoleInput {
     }
 
     public int inputIntInRange(String message, int leftBound, int rightBound) {
+        if (leftBound > rightBound){
+            logger.log(Level.WARNING, "inputInRange левая граница больше правой");
+            return leftBound - 1;
+        }
+
         System.out.println(message);
 
         int number = 0;
@@ -24,7 +29,7 @@ public class ConsoleInput {
                 if (number >= leftBound && number <= rightBound){
                     isCorrectInput = true;
                 } else{
-                    logger.log(Level.WARNING, "InputIntInRange число не входит в заданный диапазон");
+                    logger.log(Level.WARNING, "inputIntInRange число не входит в заданный диапазон");
                 }
 
             } catch (Exception e){

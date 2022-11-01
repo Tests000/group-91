@@ -4,22 +4,25 @@ import input.EmployeesAddFromInputStream;
 import random.RandomEmployeeGenerator;
 import models.Employee;
 import models.Performance;
+import storages.EmployeeStorage;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class PerformancesEmployeesController {
-    public static final int MAX_EMPLOYEES_NUMBER = 12000;
 
     private final EmployeesAddFromInputStream employeesInputFromAddStream;
+    private final EmployeeStorage employeeStorage;
 
     // будем кешировать ответы, чтобы не считать при повторном запросе
     private Set<Performance> maxPopularPerformances = null;
     private Set<Performance> performancesNotTickets = null;
 
-    public PerformancesEmployeesController(EmployeesAddFromInputStream employeesInputFromInputStream){
+    public PerformancesEmployeesController(EmployeesAddFromInputStream employeesInputFromInputStream, EmployeeStorage employeeStorage){
 
         this.employeesInputFromAddStream = employeesInputFromInputStream;
+        this.employeeStorage = employeeStorage;
     }
 
     public Set<Performance> getMaxPopularPerformances(){
@@ -63,12 +66,14 @@ public class PerformancesEmployeesController {
     }
 
     public void addEmployeesTicketsFromInputStream(){
-        var newEmployees = employeesInputFromAddStream.inputEmployees(MAX_EMPLOYEES_NUMBER);
+        var newEmployees = employeesInputFromAddStream.inputEmployees(employeeStorage.getAllowedEmployeesCount());
+        employeeStorage.addEmployees(newEmployees);
         updatePerformances(newEmployees);
     }
 
     public void addEmployeesTicketsByRandom(){
-        var newEmployees =  RandomEmployeeGenerator.generateEmployees(MAX_EMPLOYEES_NUMBER);
+        var newEmployees =  RandomEmployeeGenerator.generateEmployees(employeeStorage.getAllowedEmployeesCount());
+        employeeStorage.addEmployees(newEmployees);
         updatePerformances(newEmployees);
     }
 

@@ -5,6 +5,7 @@ import models.Employee;
 import factories.ListFactory;
 
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConsoleEmployeesAddFromInputStream implements EmployeesAddFromInputStream {
@@ -16,6 +17,12 @@ public class ConsoleEmployeesAddFromInputStream implements EmployeesAddFromInput
     @Override
     public List<Employee> inputEmployees(int maxEmployeesNumber){
         List<Employee> employeeList = ListFactory.createList();
+
+        if (maxEmployeesNumber <= 0){
+            logger.log(Level.WARNING, "inputEmployees: невозможно добавить работников");
+            return employeeList;
+        }
+
         ConsoleInput consoleInput = new ConsoleInput(logger);
 
         int employeesCount = consoleInput.inputIntInRange(
