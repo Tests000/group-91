@@ -4,53 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransportModelArrayList {
-    private static final int DAYS_CONST = 7;
-    private static final int ROUTE_CONST = 10;
-    List<List<Integer>> transportRevenue = new ArrayList<>(DAYS_CONST);
+    public static final int ROUTE_MIN = 1;
+    public static final int ROUTE_MAX = 200;
+    List<TransportStatistic> trStatistics = new ArrayList<>();
 
-    public TransportModelArrayList (){
-        for(int i = 0; i < DAYS_CONST; i++){
-            transportRevenue.add(new ArrayList<>());
+    public void createBus() {
+        int numberBus;
+        for (int i = 0; i < TransportStatistic.ROUTE_CONST; i++) {
+            numberBus = (int) ((Math.random() * (ROUTE_MAX - ROUTE_MIN)) + ROUTE_MIN);
+            trStatistics.add(new TransportStatistic(new Bus("№" + numberBus)));
         }
     }
 
-
-    public void input(int[][] inputArray){
-        for(int i = 0; i < DAYS_CONST; i++){
-            for(int j = 0; j < ROUTE_CONST; j++){
-                transportRevenue.get(i).add(inputArray[i][j]);
+    public void busWorksInput(List<Integer> inputConsole) {
+        for (int i = 0, j = 0, listCount = 0;
+             listCount < TransportStatistic.ROUTE_CONST * TransportStatistic.DAYS_CONST; j++, listCount++) {
+            if (j == 7) {
+                j = 0;
+                i++;
             }
+            trStatistics.get(i).bus.setCash(inputConsole.get(listCount));
+            trStatistics.get(i).pushCash(j);
         }
     }
 
-    public ArrayList<Integer> sumWeekRoute() {
-        ArrayList<Integer> sumWeek = new ArrayList<>(DAYS_CONST);
-        int sumRoute = 0;
-        for (int i = 0; i < ROUTE_CONST; i++) {
-            for (int j = 0; j < DAYS_CONST; j++) {
-                sumRoute += transportRevenue.get(j).get(i);
+    public void outWeekReport() {
+        int weekCash = 0;
+        for (TransportStatistic transport : trStatistics) {
+            for (int i = 1; i < TransportStatistic.DAYS_CONST + 1; i++) {
+                weekCash += transport.takeCash(i);
             }
-            sumWeek.add(sumRoute);
-            sumRoute = 0;
+            System.out.println("Недельная выручка " + "маршрута "
+                    + transport.bus.busName + " составляет: " + weekCash);
+            weekCash = 0;
         }
-        return sumWeek;
     }
-
-    public void outputWeek(){
-        ArrayList<Integer> sumWeek = sumWeekRoute();
-        for(int i = 0; i < ROUTE_CONST; i++){
-            System.out.println("Выручка за " + (i+1) + " маршрут: " + sumWeek.get(i));
-        }
-        System.out.println();
-    }
-
-    /*public void output(){
-        for(int i = 0; i < DAYS_CONST; i++){
-            System.out.println("Выручка за " + (i+1) + " день: ");
-            for(int j = 0; j < ROUTE_CONST; j++){
-                System.out.println("Выручка " + (j+1) + " маршрута: ");
-                System.out.println(transportRevenue.get(i).get(j));
-            }
-        }
-    }*/
 }
