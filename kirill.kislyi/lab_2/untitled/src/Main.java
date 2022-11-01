@@ -10,7 +10,7 @@ public class Main {
         var items = getItems();
 
         for (var item : items) {
-            if (item instanceof Scratching scratching){
+            if (item instanceof Scratching scratching) {
                 scratching.scratch("Чермет");
                 item.castrate();
             }

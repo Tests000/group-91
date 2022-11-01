@@ -16,7 +16,7 @@ public class Siberian extends HomeCat implements Scratching {
 
     public String toString() {
         return String.format(
-                "Сибирский кот %s\n" + "Возрастом %s\n" + "Цветом %s\n" + isCastratedToString() + isBoldToString(),
+                "Сибирский кот %s\n"+ "Возрастом %s\n" + "Цветом %s\n" + isCastratedToString() + isBoldToString(),
                 name,
                 age,
                 color

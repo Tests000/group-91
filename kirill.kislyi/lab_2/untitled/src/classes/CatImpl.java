@@ -13,20 +13,28 @@ public abstract class CatImpl implements Cat {
     protected boolean isBold;
 
 
-    public CatImpl(String name){
+    public CatImpl(String name) {
         this.name = name;
         isCastrated = false;
         isBold = false;
     }
 
-    protected String isCastratedToString(){
-        if (isCastrated) return "Кастрирован...";
-        else return "Не кастрирован!";
+    protected String isCastratedToString() {
+        if (isCastrated) {
+            return "Кастрирован...";
+        }
+        else {
+            return "Не кастрирован!";
+        }
     }
 
     protected String isBoldToString(){
-        if (isBold) return "Лысый...";
-        else return "Не лысый!";
+        if (isBold) {
+            return "Лысый...";
+        }
+        else {
+            return "Не лысый!";
+        }
     }
 
     @Override
@@ -37,7 +45,7 @@ public abstract class CatImpl implements Cat {
     @Override
     public void castrate() {
         showInfo();
-        if (isCastrated){
+        if (isCastrated) {
             System.out.println("\nРезать уже нечего.");
         }
         else {
@@ -48,7 +56,7 @@ public abstract class CatImpl implements Cat {
 
     @Override
     public void haircut() {;
-        if (isBold){
+        if (isBold) {
             System.out.println("\nКот и так лысый!\n");
         }
         else {
@@ -64,14 +72,23 @@ public abstract class CatImpl implements Cat {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(name);
+        return Objects.hash(name, isBold, isCastrated);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!obj.getClass().equals(this.getClass()))
+    public boolean equals(Object ob) {
+        if (ob == this) {
+            return true;
+        }
+
+        if (ob == null || ob.getClass() != getClass()) {
             return false;
-        return ((HomeCat)obj).name.equalsIgnoreCase(name);
+        }
+
+        HomeCat ins = (HomeCat) ob;
+
+        return Objects.equals(this.isBold, ins.isBold) &&
+                this.isCastrated == ins.isCastrated;
     }
 
 }
