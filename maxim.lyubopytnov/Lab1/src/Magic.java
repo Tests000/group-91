@@ -1,12 +1,26 @@
-public class Magic {
-    private static int row=3;
-    private static int col=4;
-    private static int[][] grid = new int[row][col];
+import java.util.Scanner;
 
-    public static int[][] fillArrayRandomAndPrint(){
-        for (int i=0; i<row;++i){
-            for(int j=0; j<col;++j){
-                grid[i][j]=(int)(1+Math.random()*9);
+public class Magic {
+    private static int rowSetGet(){
+        System.out.println("Enter size row: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+
+    private static int colSetGet(){
+        System.out.println("Enter size col: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+
+    public static int[][] grid = new int[rowSetGet()][colSetGet()];
+
+    public static int[][] fillArrayRandomAndPrint(int[][] grid) {
+        int row = grid.length;
+        int col = grid[0].length;
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
+                grid[i][j] = (int) (1 + Math.random() * 9);
                 System.out.print(grid[i][j] + " ");
             }
             System.out.println();

@@ -1,7 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int[][] grid = Magic.fillArrayRandomAndPrint();
-        System.out.println("Output: " + numMagicSquaresInside(grid));
+        System.out.println("Output: " + numMagicSquaresInside(Magic.fillArrayRandomAndPrint(Magic.grid)));
     }
 
     public static int numMagicSquaresInside(int[][] grid) {
@@ -14,7 +13,6 @@ public class Main {
                     result++;
             }
         }
-
         return result;
     }
 }
