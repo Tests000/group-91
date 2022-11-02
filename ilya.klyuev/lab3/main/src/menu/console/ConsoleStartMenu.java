@@ -26,12 +26,9 @@ public class ConsoleStartMenu implements StartMenu {
         menuItem = consoleInput.inputIntInRange("Выберите пункт", START_MENU_ITEM, END_MENU_ITEM);
 
         return switch (menuItem){
-            case 1:
-                yield StartMenuDialogResult.USERMODE;
-            case 2:
-                yield StartMenuDialogResult.TESTMODE;
-            default:
-                yield StartMenuDialogResult.EXIT;
+            case 1 -> StartMenuDialogResult.USERMODE;
+            case 2 -> StartMenuDialogResult.TESTMODE;
+            default -> StartMenuDialogResult.EXIT;
         };
     }
 
