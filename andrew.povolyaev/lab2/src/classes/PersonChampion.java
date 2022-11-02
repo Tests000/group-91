@@ -50,6 +50,6 @@ public class PersonChampion extends PersonCreature {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, prizeMoney);
+        return Objects.hash(name, prizeMoney, amountOfTitles);
     }
 }

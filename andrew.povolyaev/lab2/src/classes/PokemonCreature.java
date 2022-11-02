@@ -30,9 +30,6 @@ public abstract class PokemonCreature implements Pokemon {
         System.out.println("Покемон " + this.name + " испугался и куда-то убежал");
     }
 
-    public String toString() {
-        return "Покемон " + this.name + "(порядковый номер в покедексе(" + this.id + ") может нанести " + this.damage + "урона. ";
-    }
 
     public boolean equals(Object obj) {
         if (obj == this) {
@@ -49,6 +46,10 @@ public abstract class PokemonCreature implements Pokemon {
     }
 
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, name, damage);
+    }
+
+    public String toString() {
+        return "Покемон " + this.name + "(порядковый номер в покедексе(" + this.id + ") может нанести " + this.damage + "урона. ";
     }
 }

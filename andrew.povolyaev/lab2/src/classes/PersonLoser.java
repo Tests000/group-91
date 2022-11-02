@@ -1,4 +1,6 @@
-package classes;
+package Classes;
+
+import Interfaces.Person;
 
 import java.util.Objects;
 
@@ -20,6 +22,7 @@ public class PersonLoser extends PersonCreature {
             this.amountOfOweMoney = 1000;
         }
     }
+
 
     @Override
     public void inviteForABattle() {
@@ -50,5 +53,4 @@ public class PersonLoser extends PersonCreature {
     public String toString() {
         return super.toString() + "Выплакано слез за сегодня: " + amountOfTearsDropped + ". Денег должен: " + amountOfOweMoney + ".";
     }
-
 }
