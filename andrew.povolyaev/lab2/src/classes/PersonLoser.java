@@ -1,6 +1,4 @@
-package Classes;
-
-import Interfaces.Person;
+package classes;
 
 import java.util.Objects;
 
@@ -21,11 +19,6 @@ public class PersonLoser extends PersonCreature {
         } else {
             this.amountOfOweMoney = 1000;
         }
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + "Выплакано слез за сегодня: " + amountOfTearsDropped + ". Денег должен: " + amountOfOweMoney + ".";
     }
 
     @Override
@@ -52,4 +45,10 @@ public class PersonLoser extends PersonCreature {
     public int hashCode() {
         return Objects.hash(name, amountOfTearsDropped, amountOfOweMoney);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Выплакано слез за сегодня: " + amountOfTearsDropped + ". Денег должен: " + amountOfOweMoney + ".";
+    }
+
 }

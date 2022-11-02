@@ -1,9 +1,9 @@
-import Classes.PersonChampion;
-import Classes.PersonLoser;
-import Classes.PersonCreature;
-import Classes.PokemonWithoutOwner;
-import Classes.PokemonWithOwner;
-import Classes.PokemonCreature;
+import classes.PersonChampion;
+import classes.PersonLoser;
+import classes.PersonCreature;
+import classes.PokemonWithoutOwner;
+import classes.PokemonWithOwner;
+import classes.PokemonCreature;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class Main {
             pokemon.attack();
             pokemon.runAway();
             if (pokemon instanceof PokemonWithOwner) {
-                ((PokemonWithOwner)pokemon).makeSuperCombo();
+                pokemon.makeSuperCombo();
             }
         }
     }

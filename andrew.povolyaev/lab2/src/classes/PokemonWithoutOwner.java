@@ -1,6 +1,4 @@
-package Classes;
-
-import Interfaces.Pokemon;
+package classes;
 
 import java.util.Objects;
 
@@ -20,13 +18,13 @@ public class PokemonWithoutOwner extends PokemonCreature {
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "Место обитания: " + areaOfLiving + ". В стае обычно не менее " + amountOfFriends + 1 + " особей.";
+    public void makeSuperCombo() {
+        System.out.println(this.name + " и " + amountOfFriends + " ему подобных избили охотника на покемонов.");
     }
 
     @Override
-    public void makeSuperCombo() {
-        System.out.println(this.name + " и " + amountOfFriends + " ему подобных избили охотника на покемонов.");
+    public String toString() {
+        return super.toString() + "Место обитания: " + areaOfLiving + ". В стае обычно не менее " + amountOfFriends + 1 + " особей.";
     }
 
     @Override

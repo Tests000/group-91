@@ -1,6 +1,6 @@
-package Classes;
+package classes;
 
-import Interfaces.Person;
+import interfaces.Person;
 
 import java.util.Objects;
 

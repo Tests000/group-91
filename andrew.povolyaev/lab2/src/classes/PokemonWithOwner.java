@@ -1,6 +1,4 @@
-package Classes;
-
-import Interfaces.Pokemon;
+package classes;
 
 import java.util.Objects;
 

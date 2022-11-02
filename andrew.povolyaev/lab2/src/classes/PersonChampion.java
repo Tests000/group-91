@@ -1,6 +1,4 @@
-package Classes;
-
-import Interfaces.Person;
+package classes;
 
 import java.util.Objects;
 
@@ -23,14 +21,16 @@ public class PersonChampion extends PersonCreature {
         }
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + "Кол-во титулов: " + amountOfTitles + ". Призовые: " + prizeMoney + ".";
-    }
+
 
     @Override
     public void inviteForABattle() {
         System.out.println("Я - великий " + name + ", который выиграл уже " + prizeMoney + "$, вызываю на поединок первое место рейтинга.");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Кол-во титулов: " + amountOfTitles + ". Призовые: " + prizeMoney + ".";
     }
 
     @Override
