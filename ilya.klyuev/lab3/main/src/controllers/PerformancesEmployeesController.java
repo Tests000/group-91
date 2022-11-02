@@ -19,29 +19,29 @@ public class PerformancesEmployeesController {
     private Set<Performance> maxPopularPerformances = null;
     private Set<Performance> performancesNotTickets = null;
 
-    public PerformancesEmployeesController(EmployeesAddFromInputStream employeesInputFromInputStream, EmployeeStorage employeeStorage){
+    public PerformancesEmployeesController(EmployeesAddFromInputStream employeesInputFromInputStream, EmployeeStorage employeeStorage) {
 
         this.employeesInputFromAddStream = employeesInputFromInputStream;
         this.employeeStorage = employeeStorage;
     }
 
-    public Set<Performance> getMaxPopularPerformances(){
-        if (maxPopularPerformances != null){
+    public Set<Performance> getMaxPopularPerformances() {
+        if (maxPopularPerformances != null) {
             return maxPopularPerformances;
         }
 
         int maxTicketsCount = 0;
 
         // calculate max
-        for (var performance : Performance.values()){
+        for (var performance : Performance.values()) {
             maxTicketsCount = Math.max(maxTicketsCount, performance.getTicketsCount());
         }
 
         maxPopularPerformances = new HashSet<>();
 
         // select max
-        for(var performance : Performance.values()){
-            if (performance.getTicketsCount() == maxTicketsCount){
+        for (var performance : Performance.values()) {
+            if (performance.getTicketsCount() == maxTicketsCount) {
                 maxPopularPerformances.add(performance);
             }
         }
@@ -49,15 +49,15 @@ public class PerformancesEmployeesController {
         return maxPopularPerformances;
     }
 
-    public Set<Performance> getPerformancesNotTickets(){
-        if (performancesNotTickets != null){
+    public Set<Performance> getPerformancesNotTickets() {
+        if (performancesNotTickets != null) {
             return performancesNotTickets;
         }
 
         performancesNotTickets = new HashSet<>();
 
         for (Performance performance : Performance.values()) {
-            if (performance.getTicketsCount() == 0){
+            if (performance.getTicketsCount() == 0) {
                 performancesNotTickets.add(performance);
             }
         }
@@ -65,19 +65,19 @@ public class PerformancesEmployeesController {
         return performancesNotTickets;
     }
 
-    public void addEmployeesTicketsFromInputStream(){
+    public void addEmployeesTicketsFromInputStream() {
         var newEmployees = employeesInputFromAddStream.inputEmployees(employeeStorage.getAllowedEmployeesCount());
         employeeStorage.addEmployees(newEmployees);
         updatePerformances(newEmployees);
     }
 
-    public void addEmployeesTicketsByRandom(){
-        var newEmployees =  RandomEmployeeGenerator.generateEmployees(employeeStorage.getAllowedEmployeesCount());
+    public void addEmployeesTicketsByRandom() {
+        var newEmployees = RandomEmployeeGenerator.generateEmployees(employeeStorage.getAllowedEmployeesCount());
         employeeStorage.addEmployees(newEmployees);
         updatePerformances(newEmployees);
     }
 
-    private void updatePerformances(List<Employee> newEmployees){
+    private void updatePerformances(List<Employee> newEmployees) {
         for (Employee employee : newEmployees) {
             employee.getFirstPerformance().addTicket();
             employee.getSecondPerformance().addTicket();
@@ -85,7 +85,7 @@ public class PerformancesEmployeesController {
         resetPerformancesCache();
     }
 
-    private void resetPerformancesCache(){
+    private void resetPerformancesCache() {
         maxPopularPerformances = null;
         performancesNotTickets = null;
     }

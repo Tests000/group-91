@@ -15,19 +15,20 @@ public class Main {
     private static final Logger LOGGER = Logger.getGlobal();
 
     private static final int RANDOM_GENERATIONS_COUNT = 200;
+
     public static void main(String[] args) {
 
         StartMenu startMenu = new ConsoleStartMenu(LOGGER);
         StartMenuDialogResult startMenuDialogResult = startMenu.showDialog();
 
-        if (startMenuDialogResult == StartMenuDialogResult.USERMODE){
+        if (startMenuDialogResult == StartMenuDialogResult.USERMODE) {
             startUserMode();
-        } else if (startMenuDialogResult == StartMenuDialogResult.TESTMODE){
+        } else if (startMenuDialogResult == StartMenuDialogResult.TESTMODE) {
             startTestMode();
         }
     }
 
-    private static void startUserMode(){
+    private static void startUserMode() {
         ListFactory.selectList(ListChoice.ARRAYLIST);
 
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
@@ -38,7 +39,7 @@ public class Main {
         mainMenu.show();
     }
 
-    private static void startTestMode(){
+    private static void startTestMode() {
         TestTime testTime = new TestTime(LOGGER);
 
         ListFactory.selectList(ListChoice.LINKEDLIST);

@@ -14,24 +14,24 @@ public class EmployeeStorage {
 
     private final int MAX_EMPLOYEES_COUNT = 12000;
 
-    public EmployeeStorage(Logger logger){
+    public EmployeeStorage(Logger logger) {
         this.logger = logger;
         employees = ListFactory.createList();
     }
 
-    public void addEmployees(Collection<Employee> employees){
-        if (employees.size() + this.employees.size() <= MAX_EMPLOYEES_COUNT){
+    public void addEmployees(Collection<Employee> employees) {
+        if (employees.size() + this.employees.size() <= MAX_EMPLOYEES_COUNT) {
             this.employees.addAll(employees);
-        } else{
+        } else {
             logger.log(Level.SEVERE, "Превышено максимальное количество работников");
         }
     }
 
-    public int getEmployeesCount(){
+    public int getEmployeesCount() {
         return employees.size();
     }
 
-    public int getAllowedEmployeesCount(){
+    public int getAllowedEmployeesCount() {
         return MAX_EMPLOYEES_COUNT - getEmployeesCount();
     }
 }
