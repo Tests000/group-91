@@ -19,7 +19,7 @@ public class ConsoleEmployeesAddFromInputStream implements EmployeesAddFromInput
         List<Employee> employeeList = ListFactory.createList();
 
         if (maxEmployeesNumber <= 0){
-            logger.log(Level.WARNING, "inputEmployees: невозможно добавить работников");
+            logger.log(Level.SEVERE, "inputEmployees: невозможно добавить работников");
             return employeeList;
         }
 

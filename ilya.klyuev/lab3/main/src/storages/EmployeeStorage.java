@@ -23,7 +23,7 @@ public class EmployeeStorage {
         if (employees.size() + this.employees.size() <= MAX_EMPLOYEES_COUNT){
             this.employees.addAll(employees);
         } else{
-            logger.log(Level.WARNING, "Превышено максимальное количество работников");
+            logger.log(Level.SEVERE, "Превышено максимальное количество работников");
         }
     }
 

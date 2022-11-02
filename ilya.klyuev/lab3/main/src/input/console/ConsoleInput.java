@@ -12,7 +12,7 @@ public class ConsoleInput {
 
     public int inputIntInRange(String message, int leftBound, int rightBound) {
         if (leftBound > rightBound){
-            logger.log(Level.WARNING, "inputInRange левая граница больше правой");
+            logger.log(Level.SEVERE, "inputInRange левая граница больше правой");
             return leftBound - 1;
         }
 
@@ -34,7 +34,7 @@ public class ConsoleInput {
 
             } catch (Exception e){
                 scanner.nextLine();
-                logger.log(Level.WARNING, "Ошибка ввода", e);
+                logger.log(Level.SEVERE, "Ошибка ввода", e);
             }
         }
 

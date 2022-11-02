@@ -81,7 +81,7 @@ public class ConsoleMainMenu implements MainMenu {
         try{
             System.in.read();
         } catch (IOException e){
-            logger.log(Level.WARNING, "wait press enter", e);
+            logger.log(Level.SEVERE, "wait press enter", e);
         }
     }
 }
