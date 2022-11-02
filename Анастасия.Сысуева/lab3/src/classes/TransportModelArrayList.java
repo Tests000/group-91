@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransportModelArrayList {
-    public static final int ROUTE_MIN = 1;
-    public static final int ROUTE_MAX = 200;
-    List<TransportStatistic> trStatistics = new ArrayList<>();
+    public static final int ROUTE_MIN_NUMBER_CONST = 1;
+    public static final int ROUTE_MAX_NUMBER_CONST = 200;
+    final List<TransportStatistic> transportStatistics = new ArrayList<>();
 
     public void createBus() {
         int numberBus;
         for (int i = 0; i < TransportStatistic.ROUTE_CONST; i++) {
-            numberBus = (int) ((Math.random() * (ROUTE_MAX - ROUTE_MIN)) + ROUTE_MIN);
-            trStatistics.add(new TransportStatistic(new Bus("№" + numberBus)));
+            numberBus = (int) ((Math.random() * (ROUTE_MAX_NUMBER_CONST - ROUTE_MIN_NUMBER_CONST)) + ROUTE_MIN_NUMBER_CONST);
+            transportStatistics.add(new TransportStatistic(new Bus("№" + numberBus)));
         }
     }
 
@@ -23,14 +23,14 @@ public class TransportModelArrayList {
                 j = 0;
                 i++;
             }
-            trStatistics.get(i).bus.setCash(inputConsole.get(listCount));
-            trStatistics.get(i).pushCash(j);
+            transportStatistics.get(i).bus.setCash(inputConsole.get(listCount));
+            transportStatistics.get(i).pushCash(j);
         }
     }
 
     public void outWeekReport() {
         int weekCash = 0;
-        for (TransportStatistic transport : trStatistics) {
+        for (TransportStatistic transport : transportStatistics) {
             for (int i = 1; i < TransportStatistic.DAYS_CONST + 1; i++) {
                 weekCash += transport.takeCash(i);
             }

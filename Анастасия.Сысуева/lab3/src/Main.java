@@ -11,13 +11,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        TransportModelLinkedList ll = new TransportModelLinkedList();
-        TransportModelArrayList al = new TransportModelArrayList();
+        TransportModelLinkedList linkedList = new TransportModelLinkedList();
+        TransportModelArrayList arrayList = new TransportModelArrayList();
         List<Integer> inputList = new ArrayList<>();
 
         long startTime;
-        long timeSpeedLl;
-        long timeSpeedAl;
+        long timeSpeedLinkedList;
+        long timeSpeedArrayList;
         boolean exit = false;
         int answer;
 
@@ -47,19 +47,19 @@ public class Main {
             }
             if (!exit) {
                 startTime = System.currentTimeMillis();
-                ll.createBus();
-                ll.busWorksInput(inputList);
-                ll.outWeekReport();
-                timeSpeedLl = System.currentTimeMillis() - startTime;
+                linkedList.createBus();
+                linkedList.busWorksInput(inputList);
+                linkedList.outWeekReport();
+                timeSpeedLinkedList = System.currentTimeMillis() - startTime;
 
                 startTime = System.currentTimeMillis();
-                al.createBus();
-                al.busWorksInput(inputList);
-                al.outWeekReport();
-                timeSpeedAl = System.currentTimeMillis() - startTime;
+                arrayList.createBus();
+                arrayList.busWorksInput(inputList);
+                arrayList.outWeekReport();
+                timeSpeedArrayList = System.currentTimeMillis() - startTime;
 
-                System.out.println("Скорость для LinkedList: " + timeSpeedLl);
-                System.out.println("Скорость для ArrayList: " + timeSpeedAl);
+                System.out.println("Скорость для LinkedList: " + timeSpeedLinkedList);
+                System.out.println("Скорость для ArrayList: " + timeSpeedArrayList);
             }
         }
     }
