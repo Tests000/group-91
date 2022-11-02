@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ConsoleEmployeesAddFromInputStream implements EmployeesAddFromInputStream {
+public class EmployeesAddFromConsole implements EmployeesAddFromInputStream {
     private final Logger logger;
 
-    public ConsoleEmployeesAddFromInputStream(Logger logger){
+    public EmployeesAddFromConsole(Logger logger){
         this.logger = logger;
     }
     @Override

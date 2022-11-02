@@ -1,7 +1,7 @@
 import controllers.PerformancesEmployeesController;
 import factories.ListChoice;
 import factories.ListFactory;
-import input.console.ConsoleEmployeesAddFromInputStream;
+import input.console.EmployeesAddFromConsole;
 import menu.MainMenu;
 import menu.StartMenu;
 import menu.StartMenuDialogResult;
@@ -31,7 +31,7 @@ public class Main {
         ListFactory.selectList(ListChoice.ARRAYLIST);
 
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
-                new ConsoleEmployeesAddFromInputStream(LOGGER),
+                new EmployeesAddFromConsole(LOGGER),
                 new EmployeeStorage(LOGGER)
         );
         MainMenu mainMenu = new ConsoleMainMenu(performancesEmployeesController, LOGGER);
