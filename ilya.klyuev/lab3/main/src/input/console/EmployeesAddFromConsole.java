@@ -11,14 +11,15 @@ import java.util.logging.Logger;
 public class EmployeesAddFromConsole implements EmployeesAddFromInputStream {
     private final Logger logger;
 
-    public EmployeesAddFromConsole(Logger logger){
+    public EmployeesAddFromConsole(Logger logger) {
         this.logger = logger;
     }
+
     @Override
-    public List<Employee> inputEmployees(int maxEmployeesNumber){
+    public List<Employee> inputEmployees(int maxEmployeesNumber) {
         List<Employee> employeeList = ListFactory.createList();
 
-        if (maxEmployeesNumber <= 0){
+        if (maxEmployeesNumber <= 0) {
             logger.log(Level.SEVERE, "inputEmployees: невозможно добавить работников");
             return employeeList;
         }
@@ -31,7 +32,7 @@ public class EmployeesAddFromConsole implements EmployeesAddFromInputStream {
                 maxEmployeesNumber
         );
 
-        for (int i = 0; i < employeesCount; i++){
+        for (int i = 0; i < employeesCount; i++) {
             employeeList.add(Employee.fromConsole(consoleInput));
         }
 

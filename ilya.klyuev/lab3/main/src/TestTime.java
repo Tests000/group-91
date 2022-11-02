@@ -6,11 +6,12 @@ import java.util.logging.Logger;
 public class TestTime {
     private final Logger logger;
 
-    public TestTime(Logger logger){
+    public TestTime(Logger logger) {
 
         this.logger = logger;
     }
-    private void testOne(){
+
+    private void testOne() {
         PerformancesEmployeesController performancesEmployeesController = new PerformancesEmployeesController(
                 null,
                 new EmployeeStorage(logger)
@@ -20,10 +21,11 @@ public class TestTime {
         performancesEmployeesController.getMaxPopularPerformances();
         performancesEmployeesController.getPerformancesNotTickets();
     }
-    public long test(int randomGenerationsCount){
+
+    public long test(int randomGenerationsCount) {
         long startTime = System.currentTimeMillis();
 
-        for (int i = 0; i < randomGenerationsCount; i++){
+        for (int i = 0; i < randomGenerationsCount; i++) {
             testOne();
         }
 

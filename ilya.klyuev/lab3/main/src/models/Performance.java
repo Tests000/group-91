@@ -13,15 +13,15 @@ public enum Performance {
     private int ticketsCount = 0;
     private final String name;
 
-    Performance(String name){
+    Performance(String name) {
         this.name = name;
     }
 
-    public void addTicket(){
+    public void addTicket() {
         ticketsCount++;
     }
 
-    public int getTicketsCount(){
+    public int getTicketsCount() {
         return ticketsCount;
     }
 
@@ -30,11 +30,11 @@ public enum Performance {
         return String.format("%s: Количество билетов = %d", name, ticketsCount);
     }
 
-    public static Performance fromIndex(int index){
+    public static Performance fromIndex(int index) {
         return Performance.values()[index];
     }
 
-    public static int getPerformancesCount(){
+    public static int getPerformancesCount() {
         return Performance.values().length;
     }
 }

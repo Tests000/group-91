@@ -12,10 +12,10 @@ public class RandomEmployeeGenerator {
     }
 
     private static Performance generateRandomPerformance() {
-        return Performance.fromIndex((int)(Math.random() * Performance.values().length));
+        return Performance.fromIndex((int) (Math.random() * Performance.values().length));
     }
 
-    public static Employee generateEmployee(){
+    public static Employee generateEmployee() {
         Performance firstPerformance = generateRandomPerformance();
         Performance secondPerformance = generateRandomPerformance();
         return new Employee(firstPerformance, secondPerformance);

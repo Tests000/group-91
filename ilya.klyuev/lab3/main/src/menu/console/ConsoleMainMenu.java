@@ -15,7 +15,7 @@ public class ConsoleMainMenu implements MainMenu {
     private final PerformancesEmployeesController performancesEmployeesController;
     private final Logger logger;
 
-    public ConsoleMainMenu(PerformancesEmployeesController performancesEmployeesController, Logger logger){
+    public ConsoleMainMenu(PerformancesEmployeesController performancesEmployeesController, Logger logger) {
         this.performancesEmployeesController = performancesEmployeesController;
         this.logger = logger;
     }
@@ -25,11 +25,11 @@ public class ConsoleMainMenu implements MainMenu {
         int menuItem = 0;
         ConsoleInput consoleInput = new ConsoleInput(logger);
 
-        while (menuItem != END_MENU_ITEM){
+        while (menuItem != END_MENU_ITEM) {
             showMenu();
             menuItem = consoleInput.inputIntInRange("Выберите пункт", MIN_MENU_ITEM, END_MENU_ITEM);
 
-            switch (menuItem){
+            switch (menuItem) {
                 case 1 -> performancesEmployeesController.addEmployeesTicketsFromInputStream();
                 case 2 -> performancesEmployeesController.addEmployeesTicketsByRandom();
                 case 3 -> showPerformances();
@@ -40,7 +40,7 @@ public class ConsoleMainMenu implements MainMenu {
         }
     }
 
-    private void showMenu(){
+    private void showMenu() {
         System.out.println("1: Добавить выбранные билеты работников с консоли");
         System.out.println("2: Добавить выбранные билеты работников рандомно");
         System.out.println("3: Показать количество билетов на каждом спектале");
@@ -48,21 +48,22 @@ public class ConsoleMainMenu implements MainMenu {
         System.out.println("5: Показать спектали, на которые никто не купил билет");
         System.out.println("6: Выход");
     }
-    private void showPerformances(){
+
+    private void showPerformances() {
         System.out.println("Спектакли:");
-        for (var performance : Performance.values()){
+        for (var performance : Performance.values()) {
             System.out.println(performance);
         }
     }
 
-    private void showMaxPopularPerformances(){
+    private void showMaxPopularPerformances() {
         System.out.println("Самые популярые спектакли:");
-        for (var performance : performancesEmployeesController.getMaxPopularPerformances()){
+        for (var performance : performancesEmployeesController.getMaxPopularPerformances()) {
             System.out.println(performance);
         }
     }
 
-    private void showPerformancesNotTickets(){
+    private void showPerformancesNotTickets() {
         var performancesNotTickets = performancesEmployeesController.getPerformancesNotTickets();
 
         if (performancesNotTickets.isEmpty()) {
@@ -71,16 +72,16 @@ public class ConsoleMainMenu implements MainMenu {
         }
 
         System.out.println("Спектали, на которые не были куплены билеты");
-        for (var performance : performancesNotTickets){
+        for (var performance : performancesNotTickets) {
             System.out.println(performance);
         }
     }
 
-    private void waitUser(){
+    private void waitUser() {
         System.out.println("Введите <ENTER>");
-        try{
+        try {
             System.in.read();
-        } catch (IOException e){
+        } catch (IOException e) {
             logger.log(Level.SEVERE, "wait press enter", e);
         }
     }

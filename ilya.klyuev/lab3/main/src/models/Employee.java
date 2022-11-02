@@ -6,20 +6,20 @@ public class Employee {
     private final Performance firstPerformance;
     private final Performance secondPerformance;
 
-    public Employee(Performance firstPerformance, Performance secondPerformance){
+    public Employee(Performance firstPerformance, Performance secondPerformance) {
         this.firstPerformance = firstPerformance;
         this.secondPerformance = secondPerformance;
     }
 
-    public Performance getFirstPerformance(){
+    public Performance getFirstPerformance() {
         return firstPerformance;
     }
 
-    public Performance getSecondPerformance(){
+    public Performance getSecondPerformance() {
         return secondPerformance;
     }
 
-    public static Employee fromConsole(ConsoleInput consoleInput){
+    public static Employee fromConsole(ConsoleInput consoleInput) {
         System.out.println("Введите информацию о выбраных спектаклях");
 
         int firstPerformanceIndex = consoleInput.inputIntInRange(

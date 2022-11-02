@@ -12,7 +12,7 @@ public class ConsoleStartMenu implements StartMenu {
     private static final int END_MENU_ITEM = 3;
     private final Logger logger;
 
-    public ConsoleStartMenu(Logger logger){
+    public ConsoleStartMenu(Logger logger) {
 
         this.logger = logger;
     }
@@ -25,7 +25,7 @@ public class ConsoleStartMenu implements StartMenu {
         showMenu();
         menuItem = consoleInput.inputIntInRange("Выберите пункт", START_MENU_ITEM, END_MENU_ITEM);
 
-        return switch (menuItem){
+        return switch (menuItem) {
             case 1 -> StartMenuDialogResult.USERMODE;
             case 2 -> StartMenuDialogResult.TESTMODE;
             default -> StartMenuDialogResult.EXIT;
